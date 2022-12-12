@@ -1,0 +1,38 @@
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vocabulary: <https://ontology.adversaryengagement.org/ae/vocabulary/> .
+
+
+
+vocabulary:HoneypotInteractionTypeVocab a rdfs:Datatype ;
+    rdfs:label "Action Name Vocabulary"@en-US ;
+    rdfs:comment "Defines a vocabulary of honeypot interaction characteristics."@en ;
+    rdfs:subClassOf rdfs:Resource ;
+    owl:oneOf ( "High"^^vocabulary:HoneypotTypeVocab "Low"^^vocabulary:HoneypotTypeVocab "Dynamic"^^vocabulary:HoneypotTypeVocab ) .
+
+
+
+vocabulary:TeamTypeVocab a rdfs:Datatype ;
+    rdfs:label "Team Type Vocabulary"@en-US ;
+    rdfs:comment "Defines a vocabulary of the traditional types of cyber teams based on colors."@en ;
+    rdfs:subClassOf rdfs:Resource ;
+    owl:oneOf ( "Red"^^vocabulary:TeamTypeVocab "Blue"^^vocabulary:TeamTypeVocab "Purple"^^vocabulary:TeamTypeVocab ) .
+
+
+
+vocabulary:TimeTypeVocab a rdfs:Datatype ;
+    rdfs:label "Time Type Vocabulary"@en-US ;
+    rdfs:comment "Defines a vocabulary of the types of events that can be described with time."@en ;
+    rdfs:subClassOf rdfs:Resource ;
+    owl:oneOf ( "deployment"^^vocabulary:TimeTypeVocab "trigger"^^vocabulary:TimeTypeVocab "termination"^^vocabulary:TimeTypeVocab "duration"^^vocabulary:TimeTypeVocab ) .
+
+
+
+vocabulary:UnitTypeVocab a rdfs:Datatype ;
+    rdfs:label "Unit Type Vocabulary"@en-US ;
+    rdfs:comment "Defines a vocabulary of the types of metrics or measures for time units."@en ;
+    rdfs:subClassOf rdfs:Resource ;
+    owl:oneOf ( "s"^^vocabulary:UnitTypeVocab "m"^^vocabulary:UnitTypeVocab "h"^^vocabulary:UnitTypeVocab "d"^^vocabulary:UnitTypeVocab "W"^^vocabulary:UnitTypeVocab "M"^^vocabulary:UnitTypeVocab "Y"^^vocabulary:UnitTypeVocab "Undefined"^^vocabulary:UnitTypeVocab ) .
+

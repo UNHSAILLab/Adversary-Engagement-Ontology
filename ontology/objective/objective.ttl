@@ -1,0 +1,103 @@
+
+@prefix objective: <https://ontology.adversaryengagement.org/ae/objective/> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> . 
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix role: <https://ontology.adversaryengagement.org/ae/role/> . 
+@prefix sh: <http://www.w3.org/ns/shacl#> . 
+@prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> . 
+@prefix uco-observable: <https://ontology.unifiedcyberontology.org/uco/observable/> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+
+ 
+
+objective:ellicitBehavior a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "ellicitBehavior"@en ; 
+    rdfs:comment " An ellicit behavior objective is have an adversary exhibit some expected behavior that is not reaching a resource lure."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:ellicitBehavior . 
+ 
+
+objective:exfilitrate a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "exfilitrate"@en ; 
+    rdfs:comment " An exfilitrate objective is an adversary objective to move native data to external sources."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:exfilitrate . 
+ 
+
+objective:hasObjective a owl:ObjectProperty, 
+        sh:NodeShape ; 
+    rdfs:label "hasObjective"@en ; 
+    rdfs:comment "An object which can be associated with an objective."@en ; 
+    rdfs:subClassOf uco-core:UcoObject ;	
+    sh:targetClass objective:hasObjective . 
+ 
+
+objective:Objective a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Objective"@en ; 
+    rdfs:comment " An objective is associated a sequence of actions which is reasoned and optimized for in the context of adversarial engagement."@en ; 
+    rdfs:subClassOf uco-core:UcoObject ;	
+    sh:targetClass objective:Objective . 
+
+
+ 
+objective:ObjectiveFacet a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "ObjectiveFacet"@en ; 
+    rdfs:comment "An objective facet is a grouping of characteristics that describe a generic objective."@en ; 
+    rdfs:subClassOf uco-core:Facet ; 
+    sh:property [ sh:class uco-core:UcoObject ; 
+					sh:minCount 1 ; 
+					sh:nodeKind sh:BlankNodeOrIRI ; 
+					sh:path objective:hasObjective ], 
+		[ sh:class uco-observable:UcoObject ; 
+					sh:nodeKind sh:BlankNodeOrIRI ; 
+					sh:path role:hasTeam ], 
+		[ sh:class uco-observable:UcoObject ; 
+					sh:minCount 1 ; 
+					sh:nodeKind sh:BlankNodeOrIRI ; 
+					sh:path role:hasTargetEntity ] ;
+    sh:targetClass objective:ObjectiveFacet . 
+ 
+
+objective:reconnaissance a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "resource Lure"@en ; 
+    rdfs:comment " An reconnaissance objective is to gather information on adversary behavior, tactics, techniques, procedures and preferences."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:reconnaissance . 
+ 
+
+objective:resourceLure a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "resource Lure"@en ; 
+    rdfs:comment " An resource lure objective is have an adversary reach some target lure, usually performed through the deployment of breadcrumbs and honeypots."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:resourceLure . 
+ 
+
+objective:timeSink a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "timeSink"@en ; 
+    rdfs:comment " An time sink objective is to increase an adversary's operation time cost by having them interact with objects in a network."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:timeSink . 
+ 
+
+objective:track a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "track"@en ; 
+    rdfs:comment " An track objective is to be capable of identifying and tracing an adversary throughout a network."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:track . 
+ 
+
+objective:trap a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "trap"@en ; 
+    rdfs:comment " An trap objective is to limit an adversary's scope of reachability to a confined environment."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:trap . 

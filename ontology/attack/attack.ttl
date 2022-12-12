@@ -1,0 +1,99 @@
+
+@prefix attack: <https://ontology.adversaryengagement.org/ae/attack/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix uco-action: <https://ontology.unifiedcyberontology.org/uco/action/> .
+@prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> . 
+@prefix uco-observable: <https://ontology.unifiedcyberontology.org/uco/observable/> .
+@prefix vocabulary: <https://ontology.adversaryengagement.org/ae/vocabulary/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+
+
+attack:Attack a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "Attack"@en ;
+    rdfs:comment "An attack is some adversarial behavioral classification from an attack framework."@en ;
+    rdfs:subClassOf uco-action:ActionPattern ;
+    sh:targetClass attack:Attack .
+
+
+
+attack:cyberKillChain a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "cyberKillChain"@en ;
+    rdfs:comment "An cyber kill chain is a ordered sequence of actions or events describing a lifecycle from some framework."@en ;
+    rdfs:subClassOf uco-action:ActionLifecycle ;
+    sh:targetClass attack:cyberKillChain .
+
+
+
+attack:cyberKillChainFacet a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "cyberKillChainFacet"@en ;
+    rdfs:comment "An cyber kill chain is a ordered sequence of actions describing a lifecycle from an attack framework."@en ;
+    rdfs:subClassOf uco-core:Facet ;
+    sh:targetClass attack:cyberKillChainFacet .
+
+
+attack:LockheedMartinCyberKillChainFacet a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "LockheedMartinCyberKillChainFacet"@en ;
+    rdfs:comment "A concept that references Lockheed Martin's cyber kill chain."@en ;
+    rdfs:subClassOf attack:cyberKillChainFacet ;
+    sh:targetClass attack:LockheedMartinCyberKillChainFacet .
+
+
+
+attack:MitreCyberKillChainFacet a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "MitreCyberKillChainFacet"@en ;
+    rdfs:comment "An cyber kill chain is a ordered sequence of actions describing a lifecycle from the MITRE ATT&CK framework."@en ;
+    rdfs:subClassOf attack:cyberKillChainFacet ;
+    sh:targetClass attack:MitreCyberKillChainFacet .
+
+
+
+attack:MitreFacet a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "MitreFacet"@en ;
+    rdfs:comment "A concept that references MITRE ATT&CK'S framework."@en ;
+    rdfs:subClassOf uco-core:Facet ;
+    sh:targetClass attack:MitreFacet .
+
+
+
+attack:MitreProcedureFacet a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "MitreProcedureFacet"@en ;
+    rdfs:comment "An attack procedure from MITRE ATT&CK framework."@en ;
+    rdfs:subClassOf attack:MitreTechniqueFacet ;
+    sh:targetClass attack:MitreProcedureFacet .
+
+
+
+attack:MitreTacticFacet a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "MitreTacticFacet"@en ;
+    rdfs:comment "An attack tactic from MITRE ATT&CK framework."@en ;
+    rdfs:subClassOf attack:MitreFacet ;
+    sh:targetClass attack:MitreTacticFacet .
+
+
+
+attack:MitreTechinqueType a owl:DatatypeProperty ;
+    rdfs:label "MitreTechinqueType"@en ;
+    rdfs:comment "Mitre ATT&CK's techniques."@en ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( vocabulary:MitreTechinqueTypeVocab xsd:string ) ] .
+
+
+attack:MitreTechniqueFacet a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "MitreTechniqueFacet"@en ;
+    rdfs:comment "An attack technique from MITRE ATT&CK framework."@en ;
+    rdfs:subClassOf attack:MitreTacticFacet ;
+    sh:targetClass attack:MitreTechniqueFacet .

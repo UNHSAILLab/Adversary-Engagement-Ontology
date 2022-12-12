@@ -1,0 +1,132 @@
+
+@prefix engage: <https://ontology.adversaryengagement.org/ae/engage/> .
+@prefix identity: <https://ontology.adversaryengagement.org/ae/identity/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix role: <https://ontology.adversaryengagement.org/ae/role/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> .
+@prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> .
+@prefix uco-observable: <https://ontology.unifiedcyberontology.org/uco/observable/> .
+@prefix uco-role: <https://ontology.unifiedcyberontology.org/uco/role/> .
+@prefix vocabulary: <https://ontology.adversaryengagement.org/ae/vocabulary/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+
+
+
+role:adversary a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "adversary"@en ;
+    rdfs:comment "An adversary is a contextual reference to an entity that has some opposing objective to a network's confidentiality, integrity, availability or any security objective."@en ;
+    rdfs:subClassOf uco-identity:Person ,
+		uco-role:Role ;
+    sh:targetClass role:adversary .
+
+
+role:defender a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "defender"@en ;
+    rdfs:comment "An defender is a contextual reference to an entity whose objective is aligned with a network's confidentiality, integrity, availability or security objective."@en ;
+    rdfs:subClassOf uco-identity:Person ,
+		uco-role:Role ;
+    sh:targetClass role:defender .
+
+
+role:hasHumanTeamMember a owl:ObjectProperty ;
+    rdfs:label "hasHumanTeamMember"@en ;
+    rdfs:comment "A human team member is a grouping of identifying characteristics unique to an human entity as an individual."@en ;
+    rdfs:range role:humanTeamMember .
+
+
+role:hasTargetEntity a owl:ObjectProperty ;
+    rdfs:label "hasTargetEntity"@en ;
+    rdfs:comment "A targetIdentity is an entity or team which a defender, adversary or team performs action to or interact with."@en ;
+    rdfs:range role:TargetEntity .
+	
+
+
+
+role:hasTeam a owl:ObjectProperty ;
+    rdfs:label "hasTeam"@en ;
+    rdfs:comment "The conventional reference to group of agents that are associated with some unified identity with a team objective"@en ;
+    rdfs:range role:Team .
+	
+
+
+
+role:humanTeamMember a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "humanTeamMember"@en ;
+    rdfs:comment "A human team member is a grouping of identifying characteristics unique to an human entity as an individual."@en ;
+    rdfs:subClassOf uco-identity:Identity ,
+		uco-role:Role ;
+    sh:targetClass role:humanTeamMember .
+
+
+role:TargetEntity a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "Target"@en ;
+    rdfs:comment "A targetIdentity is an entity or team which a defender, adversary or team performs action to or interact with."@en ;
+    rdfs:subClassOf uco-identity:Identity;
+    sh:targetClass role:TargetEntity .
+	
+
+
+
+role:Team a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "Team"@en ;
+    rdfs:comment "The conventional reference to group of agents that are associated with some unified identity with a team objective"@en ;
+    rdfs:subClassOf uco-identity:Organization ;
+    sh:targetClass role:Team .
+	
+
+
+identity:TeamFacet a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "TeamFacet"@en ;
+    rdfs:comment "Team is a grouping of entities for describing cooperative relationships among its entity members."@en ;
+    rdfs:subClassOf uco-identity:IdentityFacet ;
+	
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:path identity:teamName ],
+        [ sh:class uco-core:UcoObject ;
+            sh:nodeKind sh:Literal ;
+            sh:path identity:hasHumanTeamMember ],
+		[ sh:datatype xsd:string ;
+					sh:maxCount 1 ;
+					sh:minCount 1 ;
+					sh:nodeKind sh:Literal ;
+					sh:path identity:teamIdentifier ],
+        [ sh:datatype vocabulary:TeamTypeVocab ;
+            sh:message "Value is outside the default vocabulary TeamTypeVocab." ;
+            sh:path role:teamType ;
+            sh:severity sh:Info ],
+        [ sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:or ( [ sh:datatype vocabulary:TeamTypeVocab ] [ sh:datatype xsd:string ] ) ;
+            sh:path role:teamType ],
+        [ sh:message "Value is not member of the vocabulary TeamTypeVocab." ;
+            sh:or ( [ sh:datatype vocabulary:TeamTypeVocab ;
+                        sh:in vocabulary:TeamTypeVocab-members ] [ sh:datatype xsd:string ] ) ;
+            sh:path role:teamType ] ;
+		
+    sh:targetClass role:TeamFacet .
+
+
+identity:teamMember a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "teamMember"@en ;
+    rdfs:comment "A team member is an entity or group of entities assigned to an identifiable team."@en ;
+    rdfs:subClassOf uco-identity:Identity,
+		uco-role:Role ;
+    sh:targetClass identity:teamMember .
+
+role:teamType a owl:DatatypeProperty ;
+    rdfs:label "teamType"@en ;
+    rdfs:comment "The traditional color-typing for a team."@en ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( vocabulary:TeamTypeVocab xsd:string ) ] .
