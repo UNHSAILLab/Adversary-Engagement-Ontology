@@ -1,0 +1,292 @@
+{ 
+    "__AE__": "AE_2022_01_01", 
+    "@context": { 
+        "kb": "http://example.org/kb#", 
+        "@vocab": "http://example.org/ontology/local#", 
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#", 
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#", 
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "uco-action": "https://ontology.unifiedcyberontology.org/uco/action/", 
+        "uco-core": "https://ontology.unifiedcyberontology.org/uco/core/", 
+        "uco-identity": "https://ontology.unifiedcyberontology.org/uco/identity/", 
+        "uco-role":"https://ontology.unifiedcyberontology.org/uco/role/", 
+        "engage": "https://ontology.adversaryengagement.org/ae/engage/",
+        "identity": "https://ontology.adversaryengagement.org/ae/identity/",
+        "role": "https://ontology.adversaryengagement.org/ae/role/",
+        "attack": "https://ontology.adversaryengagement.org/ae/attack/"
+    },
+    "@id": "kb:honeypot_02_02_2022", 
+    "@type": "uco-observable:Bundle", 
+    "uco-core:description": "Narrative of honeytoken deployment and accessed honeypot.", 
+    
+    "uco-core:object": [ 
+        {
+        "@id": "kb:narrative1", 
+        "@type": "engage:Narrative", 
+        "uco-core:description": "The identifiable name of the deception campaign.",
+        "engage:hasStoryline":[
+                {
+                    "@id":"kb:storyline1",
+                    "@type":"engage:Storyline",
+                    "uco-core:name":"story1"
+                }
+            ]
+        },
+        {
+            "@type":"uco-core:Relationship",
+            "uco-core:name":"start-event",
+            "uco-core:source":[
+                {
+                    "@id":"kb:storyline1",
+                    "@type":"engage:Storyline",
+                    "uco-core:name":"story1"
+                }
+                ],
+            "uco-core:target":[
+                {
+                    "@id":"Event1",
+                    "@type":"engage:Event",
+                    "uco-core:name": "def-deploy-honeytoken",
+                    "engage:hasEventScript":[
+                        {
+                            "@type":"engage:Deploy",
+                            "uco-core:performer": [
+                                {
+                                "@type":"uco-identity:Person",
+                                "uco-core:hasFacet":[
+                                    {
+                                    "@id":"kb:MaryJane",
+                                    "@type":"identity:SimpleNameFacet",
+                                    "uco-identity:familyName":"Mary",
+                                    "uco-identity:givenName":"Jane"
+                                    }],
+                            "uco-core:object": [
+                                {
+                                "@type":"engage:HoneyToken",
+                                "uco-core:description":"Honeytoken credentials to a honeypot."
+                                }]
+                        }
+                    ]
+                    
+                        }]
+                }
+                ]
+        },
+        {
+            "@type":"uco-core:Relationship",
+            "uco-core:name":"hasRole",
+            "uco-core:source":[
+                    {
+                    "@id":"kb:MaryJane",
+                    "@type":"identity:SimpleNameFacet",
+                    "uco-identity:familyName":"Mary",
+                    "uco-identity:givenName":"Jane"
+                    }
+                ],
+            "uco-core:target":[
+                {
+                    "@type":"uco-role:Role",
+                    "uco-core:name":"Defender"
+                }
+                ]
+        },
+        {
+            "@type":"uco-core:Relationship",
+            "uco-core:name":"second-event",
+            "uco-core:source":[
+                {
+                    "@id":"kb:storyline1",
+                    "@type":"engage:Storyline",
+                    "uco-core:name":"story1"
+                }
+                ],
+            "uco-core:target":[
+                {
+                    "@id":"Event2",
+                    "@type":"engage:Event",
+                    "uco-core:name": "adv-finds-honeytoken",
+                    "engage:hasEventScript":[
+                        {
+                            "@id":"kb:alert1",
+                            "@type":"engage:Alert",
+                            "uco-core:performer":[
+                                {
+                                    "@id":"kb:DataSource1",
+                                    "@type":"engage:DataSource",
+                                    "uco-core:name":"CanaryTokenAlert"
+                                }],
+                            "uco-core:object":[
+                                {
+                                    "@type":"uco-role:Role",
+                                    "uco-core:name":"Defender"
+                                }],
+                            "uco-core:result":[
+                                {
+                                "@type":"engage:Access",
+                                "uco-core:performer":[
+                                    {
+                                        "@type":"uco-role:Role",
+                                        "uco-core:name":"Adversary"
+                                    }],
+                                "uco-core:object":[
+                                    {
+                                        "@id":"kb:honeytoken1",
+                                        "@type":"engage:honeyToken"
+                                    },
+                                    {
+                                        "@id":"kb:file1",
+                                        "@type":"uco-observable:File",
+                                        "uco-core:name":"saved-login-creds.txt"
+                                    }]
+                                }]
+                        }]
+                }
+                ]
+        },
+        {
+        "@type":"uco-core:Relationship",
+        "uco-core:name":"third-event",
+        "uco-core:source":[
+            {
+                "@id":"kb:storyline1",
+                "@type":"engage:Storyline",
+                "uco-core:name":"story1"
+            }
+            ],
+        "uco-core:target":[
+            {
+                "@id":"Event3",
+                "@type":"engage:Event",
+                "uco-core:name": "adv-scans-honeypot",
+                "engage:hasEventScript":[
+                    {
+                        "@id":"kb:alert2",
+                        "@type":"engage:Alert",
+                        "uco-core:performer":[
+                            {
+                                "@id":"kb:DataSource2",
+                                "@type":"engage:DataSource",
+                                "uco-core:name":"NetworkAlert"
+                            }],
+                        "uco-core:object":[
+                            {
+                                "@type":"uco-role:Role",
+                                "uco-core:name":"Defender"
+                            }],
+                        "uco-core:result":[
+                            {
+                            "@type":"uco-observable:IPv6Address",
+                            "uco-core:name":"known-adversary-ip"
+                            }]
+                    }
+                ]
+            }
+            ]
+        },
+        {
+        "@type":"uco-core:Relationship",
+        "uco-core:name":"last-event",
+        "uco-core:source":[
+            {
+                "@id":"kb:storyline1",
+                "@type":"engage:Storyline",
+                "uco-core:name":"story1"
+            }
+            ],
+        "uco-core:target":[
+            {
+                "@id":"Event4",
+                "@type":"engage:Event",
+                "uco-core:name": "adv-accesses-honeypot-with-honeytoken",
+                "engage:hasEventScript":[
+                    {
+                        "@id":"kb:alert3",
+                        "@type":"engage:Alert",
+                        "uco-core:performer":[
+                            {
+                                "@id":"kb:DataSource3",
+                                "@type":"engage:DataSource",
+                                "uco-core:name":"LoginAlert"
+                            }],
+                        "uco-core:object":[
+                            {
+                                "@type":"uco-role:Role",
+                                "uco-core:name":"Adversary"
+                            }],
+                        "uco-core:result":[
+                           {
+                            "@type":"engage:Access",
+                            "uco-core:performer":[
+                                {
+                                    "@type":"uco-role:Role",
+                                    "uco-core:name":"Adversary"
+                                }],
+                            "uco-core:object":[
+                                {
+                                  "@type":"engage:Honeypot",
+                                    "uco-core:name":"Windows XP"
+                                }],
+                            "uco-core:instrument":[
+                                {
+                                    "@id":"kb:honeytoken1",
+                                    "@type":"engage:honeyToken"
+                                }]
+                            }]
+            }]
+        },
+
+        {
+                "@type":"uco-core:Relationship",
+                "uco-core:name":"nextEvent",
+                "uco-core:source":[
+                    {
+                        "@id":"Event1",
+                        "@type":"engage:Event",
+                        "uco-core:name": "def-deploy-honeytoken"
+                    }
+                    ],
+                "uco-core:target":[
+                {
+                    "@id":"Event2",
+                    "@type":"engage:Event",
+                    "uco-core:name": "adv-finds-honeytoken"
+                }]
+        },
+        {
+                "@type":"uco-core:Relationship",
+                "uco-core:name":"nextEvent",
+                "uco-core:source":[
+                    {
+                    "@id":"Event2",
+                    "@type":"engage:Event",
+                    "uco-core:name": "adv-finds-honeytoken"
+                    }
+                    ],
+                "uco-core:target":[
+                {
+                    "@id":"Event3",
+                    "@type":"engage:Event",
+                    "uco-core:name": "adv-scans-honeypot"
+                }]
+        },
+        {
+                "@type":"uco-core:Relationship",
+                "uco-core:name":"nextEvent",
+                "uco-core:source":[
+                    {
+                    "@id":"Event3",
+                    "@type":"engage:Event",
+                    "uco-core:name": "adv-scans-honeypot"
+                    }
+                    ],
+                "uco-core:target":[
+                {
+                    "@id":"Event4",
+                    "@type":"engage:Event",
+                    "uco-core:name": "adv-accesses-honeypot-with-honeytoken"
+                }]
+        }
+    
+    ]
+        }]}
+
