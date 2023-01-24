@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fluid Deception Example</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>12-22-2022-Updated_HoneypotNarrativeExample.pynb</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14559,12 +14559,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: {
-                    automatic: true
+                    linebreaks: { 
+                    automatic: true 
                     }
                 }
             });
-
+        
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14579,7 +14579,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Scenario:">Scenario:<a class="anchor-link" href="#Scenario:">&#182;</a></h2><p>A low interaction honeypot dynamically reallocates resources to become a high interaction honeypot when an adversary interacts with the low interaction honeypot.</p>
+<h1 id="Honeypot-Narrative-Example">Honeypot Narrative Example<a class="anchor-link" href="#Honeypot-Narrative-Example">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>The usage of this example is to demonstrate how to narrate a sequences of expected events which representations the desired process for a deception operation.</p>
 
 </div>
 </div>
@@ -14591,51 +14602,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol>
-<li>Add appropriate prefixes</li>
-</ol>
+<p>A few concepts to keep in mind:</p>
+<ul>
+<li><code>Storyline</code> is used to describe a set of events which relate to each other for a single trajectory of a deception operation.</li>
+<li><code>Narrative</code> or alternatively a deception campaign is the association to any and all sequences of events tied to a single identity campaign.</li>
+<li><code>Relationship</code> comes from UCO and requires adoption</li>
+<li>All action classes e.g. <code>Access</code>, <code>Alert</code> rely UCO's action class and its current properties, please note the adoption.</li>
+<li><code>Relationship</code> is used to describe ordinal relationships between Events instead of properties to allow for flexibility across multiple Storylines</li>
+</ul>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">{</span> 
-    <span class="s2">"__AE__"</span><span class="p">:</span> <span class="s2">"AE_2022_01_01"</span><span class="p">,</span> 
-    <span class="s2">"@context"</span><span class="p">:</span> <span class="p">{</span> 
-        <span class="s2">"kb"</span><span class="p">:</span> <span class="s2">"http://example.org/kb#"</span><span class="p">,</span> 
-        <span class="s2">"@vocab"</span><span class="p">:</span> <span class="s2">"http://example.org/ontology/local#"</span><span class="p">,</span> 
-        <span class="s2">"rdf"</span><span class="p">:</span> <span class="s2">"http://www.w3.org/1999/02/22-rdf-syntax-ns#"</span><span class="p">,</span> 
-        <span class="s2">"rdfs"</span><span class="p">:</span> <span class="s2">"http://www.w3.org/2000/01/rdf-schema#"</span><span class="p">,</span> 
-        <span class="s2">"xsd"</span><span class="p">:</span> <span class="s2">"http://www.w3.org/2001/XMLSchema#"</span><span class="p">,</span>
-        <span class="s2">"uco-action"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/action/"</span><span class="p">,</span> 
-        <span class="s2">"uco-configuration"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/configuration/"</span><span class="p">,</span> 
-        <span class="s2">"uco-core"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/core/"</span><span class="p">,</span> 
-        <span class="s2">"uco-identity"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/identity/"</span><span class="p">,</span> 
-        <span class="s2">"uco-location"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/location/"</span><span class="p">,</span> 
-        <span class="s2">"uco-observable"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/observable/"</span><span class="p">,</span> 
-        <span class="s2">"uco-tool"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/tool/"</span><span class="p">,</span> 
-        <span class="s2">"uco-types"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/types/"</span><span class="p">,</span> 
-        <span class="s2">"uco-vocabulary"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/vocabulary/"</span><span class="p">,</span> 
-
-        <span class="s2">"engage"</span><span class="p">:</span> <span class="s2">"https://ontology.adversaryengagement.org/ae/engage/"</span><span class="p">,</span>
-        <span class="s2">"identity"</span><span class="p">:</span> <span class="s2">"https://ontology.adversaryengagement.org/ae/identity/"</span><span class="p">,</span>
-        <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"https://ontology.adversaryengagement.org/ae/role/"</span><span class="p">,</span>
-        <span class="s2">"attack"</span><span class="p">:</span> <span class="s2">"https://ontology.adversaryengagement.org/ae/attack/"</span>
-    <span class="p">},</span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14643,47 +14621,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol>
-<li>Add Bundle object. Bundle consists of the low interaction honeypot, the high interaction honeypot, and the time trigger which converted low to high.</li>
-</ol>
+<p><img src="12-22-2022-Updated_HoneypotNarrativeExample.png" alt="alt text" title="12-22-2022-Updated_HoneypotNarrativeExample"></p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span>    <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"kb:fluiddeception_02_02_2022"</span><span class="p">,</span> 
-    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"uco-observable:Bundle"</span><span class="p">,</span> 
-    <span class="s2">"uco-core:description"</span><span class="p">:</span> <span class="s2">"Honeypot changes from low interaction to high interaction once an adversary ping sweeps the honeypot."</span><span class="p">,</span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span>    <span class="s2">"uco-core:object"</span><span class="p">:</span> <span class="p">[</span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14691,148 +14633,48 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>2.1. High interaction honeypot with a deployment timestamp matching that of the low honeypot timestamp trigger. "convertsInto" describes the objectproperty between the individual instance of the low interaction honeypot with the high interaction honeypot</p>
+<h3 id="1.-Event-1-(highlighted-in-green)">1. Event 1 (highlighted in green)<a class="anchor-link" href="#1.-Event-1-(highlighted-in-green)">&#182;</a></h3><p>The first expected event named "def-deploy-honeytoken" has an associated hasEventScript property, linking the Event object and the action associated with the event. Other objects and identities relating to this action are expressed through the UCO action properties e.g. <code>performer</code>,<code>object</code>.</p>
+<p>The event describes that a role defender identity deployed honeytoken credentials.</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span>        <span class="p">{</span> 
-            <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"kb:hhoneypot"</span><span class="p">,</span> 
-            <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"engage:honeypot"</span><span class="p">,</span> 
-            <span class="s2">"uco-core:hasFacet"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"engage:honeypotFacet"</span><span class="p">,</span>
-                <span class="s2">"engage:convertsInto"</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                    <span class="s2">"@id"</span><span class="p">:</span><span class="s2">"kb:lhoneypot"</span><span class="p">,</span>
-                    <span class="s2">"@type"</span><span class="p">:</span><span class="s2">"engage:honeypot"</span><span class="p">,</span>
-                    <span class="s2">"uco-core:hasFacet"</span><span class="p">:[{</span>
-                        <span class="s2">"@type"</span><span class="p">:</span><span class="s2">"engage:honeypotFacet"</span><span class="p">,</span>
-                        <span class="s2">"time:hasTime"</span><span class="p">:</span> <span class="p">[</span>
-                                        <span class="p">{</span>
-                                        <span class="s2">"time:Timestamp"</span><span class="p">:</span> <span class="s2">"01-01-2022"</span><span class="p">,</span>
-                                        <span class="s2">"time:TimeType"</span><span class="p">:</span> <span class="s2">"deployment"</span>
-                                        <span class="p">},</span>
-                                        <span class="p">{</span>
-                                        <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"lowToHigh1"</span><span class="p">,</span>
-                                        <span class="s2">"time:Timestamp"</span><span class="p">:</span> <span class="s2">"01-02-2022"</span><span class="p">,</span>
-                                        <span class="s2">"time:TimeType"</span><span class="p">:</span> <span class="s2">"trigger"</span>
-                                        <span class="p">}</span>
-                                    <span class="p">],</span>
-                        <span class="s2">"engage:honeypotInteractionType"</span><span class="p">:</span> <span class="s2">"Low"</span>
-                    <span class="p">}</span>
-                <span class="p">],</span>
-                <span class="s2">"time:Time"</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                    <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"lowToHigh1"</span><span class="p">,</span>
-                    <span class="s2">"time:Timestamp"</span><span class="p">:</span> <span class="s2">"01-02-2022"</span><span class="p">,</span>
-                    <span class="s2">"time:TimeType"</span><span class="p">:</span> <span class="s2">"deployment"</span>
-                    <span class="p">}</span>
-                <span class="p">],</span>
-                <span class="s2">"engage:deployEntity"</span><span class="p">:</span> <span class="p">[</span>
-                <span class="p">{</span>
-                    <span class="s2">"@id"</span> <span class="p">:</span> <span class="s2">"kb:ex1"</span><span class="p">,</span>
-                    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"role:defender"</span><span class="p">,</span>
-                    <span class="s2">"engage:teamIdentifier"</span><span class="p">:</span> <span class="s2">"team-01"</span><span class="p">,</span>
-                    <span class="s2">"engage:teamMemberIdentifier"</span><span class="p">:</span> <span class="s2">"btm-01"</span>
-                <span class="p">}</span>
-                <span class="p">],</span>
-                <span class="s2">"role:hasTargetEntity"</span><span class="p">:</span> <span class="p">[</span>
-                <span class="p">{</span>
-                    <span class="s2">"@id"</span> <span class="p">:</span> <span class="s2">"kb:ex1"</span><span class="p">,</span>
-                    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"role:Team"</span><span class="p">,</span>
-                    <span class="s2">"engage:teamIdentifier"</span><span class="p">:</span> <span class="s2">"APTZ"</span><span class="p">,</span>
-                    <span class="s2">"engage:teamMemberIdentifier"</span><span class="p">:</span> <span class="s2">"APTZ"</span>
-                <span class="p">}</span>
-                <span class="p">],</span>
-                <span class="s2">"objective:hasObjective"</span><span class="p">:</span> <span class="p">[</span>
-                  <span class="p">{</span>
-                    <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"kb:obj1"</span><span class="p">,</span>
-                    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"objective:trap"</span>
-                  <span class="p">}</span>
-                <span class="p">],</span>
-                <span class="s2">"engage:hasStagedAttackMethod"</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                        <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"kb:sae1"</span><span class="p">,</span>
-                        <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"attack:Attack"</span><span class="p">,</span>
-                        <span class="s2">"uco-core:description"</span><span class="p">:</span> <span class="s2">"Honeytoken credential access."</span><span class="p">,</span>
-                        <span class="s2">"technique"</span><span class="p">:</span> <span class="s2">"T1555.1"</span><span class="p">,</span>
-                        <span class="s2">"tactic"</span><span class="p">:</span> <span class="s2">"Credential Access"</span>
-                    <span class="p">}</span>
-                    <span class="p">],</span>
-            <span class="s2">"engage:honeypotInteractionType"</span><span class="p">:</span> <span class="s2">"High"</span><span class="p">,</span>
-            <span class="s2">"engage:hasStage"</span><span class="p">:</span> <span class="p">[</span>
-              <span class="p">{</span>
-                    <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"kb:hhp-1"</span><span class="p">,</span>
-                    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"uco-observable:AndroidDevice"</span><span class="p">,</span>
-                    <span class="s2">"uco-core:hasFacet"</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                        <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"kb:ad-hp"</span><span class="p">,</span>
-                        <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"uco-observable:AndroidDeviceFacet"</span><span class="p">,</span>
-                        <span class="s2">"uco-core:description"</span><span class="p">:</span> <span class="s2">"Honeypot Android device."</span><span class="p">,</span>
-                        <span class="s2">"uco-observable:androidFingerprint"</span><span class="p">:</span> <span class="s2">"13141516"</span><span class="p">,</span>
-                        <span class="s2">"uco-observable:androidID"</span><span class="p">:</span> <span class="s2">"android-01m4"</span><span class="p">,</span>
-                        <span class="s2">"uco-observable:androidVersion"</span><span class="p">:</span><span class="s2">"1.0.2"</span>
-                        <span class="p">}</span>
-                    <span class="p">]</span>
-              <span class="p">}],</span>
-            <span class="s2">"engage:hasStagedAttackSurface"</span><span class="p">:</span> <span class="p">[</span>
-                <span class="p">{</span>
-                    <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"kb:sae1"</span><span class="p">,</span>
-                    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"uco-observable:port"</span><span class="p">,</span>
-                    <span class="s2">"uco-core:description"</span><span class="p">:</span> <span class="s2">"Port 22 has ssh service running that can be accessed via the honeytoken credentials."</span><span class="p">,</span>
-                    <span class="s2">"uco-core:hasFacet"</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                        <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"uco-observable:port"</span><span class="p">,</span>
-                        <span class="s2">"uco-observable:port"</span><span class="p">:</span> <span class="mi">22</span>
-                    <span class="p">}</span>
-                    <span class="p">]</span>
-                <span class="p">}</span>
-            <span class="p">],</span>
-            <span class="s2">"engage:hasStagedExit"</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                        <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"engage:Exit"</span><span class="p">,</span>
-                        <span class="s2">"uco-core:description"</span><span class="p">:</span> <span class="s2">"Honeypot is meant to trap adversaries so there is not available exit."</span>
-                    <span class="p">}</span>
-                    <span class="p">],</span>
-            <span class="s2">"engage:hasHoneyObject"</span><span class="p">:[</span>
-                    <span class="p">{</span>
-                        <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"ht-1"</span><span class="p">,</span>
-                        <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"engage:honeyToken"</span><span class="p">,</span>
-                        <span class="s2">"engage:honeyTokenIdentifier"</span><span class="p">:</span> <span class="s2">"honeytoken-1"</span><span class="p">,</span>
-                        <span class="s2">"uco-core:hasFacet"</span><span class="p">:</span> <span class="p">[</span>
-                        <span class="p">{</span>
-                            <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"ht-accountcred1"</span><span class="p">,</span>
-                            <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"engage:honeyTokenFacet"</span><span class="p">,</span>
-                            <span class="s2">"uco-core:object"</span><span class="p">:</span> <span class="p">[</span>
-                              <span class="p">{</span>
-                                <span class="s2">"uco-observable:Credential"</span><span class="p">:</span> <span class="s2">"HarryPeter01"</span>
-                              <span class="p">}</span>
-                            <span class="p">]</span>
-                        <span class="p">}</span>
-                        <span class="p">]</span>
-                    <span class="p">}</span>
-            <span class="p">]</span> 
-            <span class="p">}</span>
-            <span class="p">]</span>
-<span class="p">}</span>
-<span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="2.-Event-2-(highlighted-in-red)">2. Event 2 (highlighted in red)<a class="anchor-link" href="#2.-Event-2-(highlighted-in-red)">&#182;</a></h3><p>The second expected event named "adv-finds-honeytoken" describe an event where some data source "CanaryTokenAlert" alerts a defender role that there has been access to a particular file which contains the honeytoken credentials.</p>
 
-     </div>
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="3.-Event-3-(highlighted-in-purple)">3. Event 3 (highlighted in purple)<a class="anchor-link" href="#3.-Event-3-(highlighted-in-purple)">&#182;</a></h3><p>The third expected event named "adv-scans-honeypot" describe an event where some data source "NetworkLog" which alerts a defender role that a known adversary IP pinged the honeypot.</p>
 
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="4.-Event-4-(highlighted-in-blue)">4. Event 4 (highlighted in blue)<a class="anchor-link" href="#4.-Event-4-(highlighted-in-blue)">&#182;</a></h3><p>The last expected event named "adv-uses-honeytoken" describe an event where some data source "LoginAlert" alerts a defender role that an adversary logged into the intended Windows XP Honeypot using the honeytoken credentials.</p>
+
+</div>
+</div>
+</div>
 </div>
 </body>
 

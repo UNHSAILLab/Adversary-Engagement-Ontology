@@ -22,7 +22,6 @@ top_srcdir := ..
   check-identity \
   check-objective \
   check-role \
-  check-time \
   check-vocabulary \
   clean-master \
   clean-engage \
@@ -38,7 +37,6 @@ check: \
   check-identity \
   check-objective \
   check-role \
-  check-time \
   check-vocabulary
 
 
@@ -67,11 +65,6 @@ check-role: \
 	$(MAKE) \
 	  --directory role \
 	  check
-check-time: \
-  $(top_srcdir)/.lib.done.log
-	$(MAKE) \
-	  --directory time \
-	  check
 check-vocabulary: \
   $(top_srcdir)/.lib.done.log
 	$(MAKE) \
@@ -84,7 +77,6 @@ clean: \
   clean-identity \
   clean-objective \
   clean-role \
-  clean-time \
   clean-vocabulary
 
 clean-master:
@@ -106,10 +98,6 @@ clean-objective:
 clean-role:
 	@$(MAKE) \
 	  --directory role \
-	  clean
-  clean-time:
-	@$(MAKE) \
-	  --directory time \
 	  clean
 clean-vocabulary:
 	@$(MAKE) \

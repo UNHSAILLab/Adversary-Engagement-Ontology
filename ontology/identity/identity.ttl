@@ -1,37 +1,43 @@
 
-@prefix engage: <https://ontology.adversaryengagement.org/ae/engage/> .
+@prefix engage: <https://ontology.adversaryengagement.org/ae/engage/> . 
 @prefix identity: <https://ontology.adversaryengagement.org/ae/identity/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> . 
+@prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> . 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
-engage:honeyTokenIdentifier a owl:DatatypeProperty ;
-    rdfs:label "honeyTokenIdentifier"@en ;
-    rdfs:comment "The unique identifier for a honey token."@en ;
+identity:approachIdentifier a owl:DatatypeProperty ;
+    rdfs:label "approachIdentifier"@en ;
+    rdfs:comment "The unique identifier of the MITRE ENGAGE approach."@en ;
     rdfs:range xsd:string .
 
+identity:goalIdentifier a owl:DatatypeProperty ;
+    rdfs:label "goalIdentifier"@en ;
+    rdfs:comment "The unique identifier of the MITRE ENGAGE goal."@en ;
+    rdfs:range xsd:string .
 
-identity:persona a owl:Class,
-        sh:NodeShape ;
-    rdfs:label "persona"@en ;
-    rdfs:comment "An persona is a fabricated or partially ficticious person that serves some purpose for adversary deception."@en ;
-    rdfs:subClassOf uco-identity:Person ;
-    sh:targetClass identity:persona .
+ 
 
-engage:TeamIdentifier a owl:DatatypeProperty ;
+engage:Persona a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Persona"@en ; 
+    rdfs:comment " An persona is a facticious entity created to serve a purpose in a deception operation."@en ; 
+    rdfs:subClassOf uco-identity:Identity ;
+    sh:targetClass engage:Persona . 
+
+identity:tacticIdentifier a owl:DatatypeProperty ;
+    rdfs:label "tacticIdentifier"@en ;
+    rdfs:comment "The unique identifier of the MITRE ATT&CK tactic."@en ;
+    rdfs:range xsd:string .
+
+identity:teamIdentifier a owl:DatatypeProperty ;
     rdfs:label "teamIdentifier"@en ;
-    rdfs:comment "The unique identifier for the team."@en ;
+    rdfs:comment "The unique identifier of a team."@en ;
     rdfs:range xsd:string .
 
-engage:teamMemberIdentifier a owl:DatatypeProperty ;
-    rdfs:label "teamMemberIdentifier"@en ;
-    rdfs:comment "The unique identifier for a team member."@en ;
-    rdfs:range xsd:string .
-
-identity:teamName a owl:DatatypeProperty ;
-    rdfs:label "teamName"@en ;
-    rdfs:comment ""@en ;
+identity:techniqueIdentifier a owl:DatatypeProperty ;
+    rdfs:label "techniqueIdentifier"@en ;
+    rdfs:comment "The unique identifier of the MITRE ATT&CK technique."@en ;
     rdfs:range xsd:string .

@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Honeypot_Example</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>01-23-2022-OperationalHoneypot</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14559,12 +14559,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: {
-                    automatic: true
+                    linebreaks: { 
+                    automatic: true 
                     }
                 }
             });
-
+        
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14579,7 +14579,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Honeypot-Example">Honeypot Example<a class="anchor-link" href="#Honeypot-Example">&#182;</a></h1>
+<h1 id="Operational-Honeypot-Narrative-Example">Operational Honeypot Narrative Example<a class="anchor-link" href="#Operational-Honeypot-Narrative-Example">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -14590,8 +14590,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Scenario:">Scenario:<a class="anchor-link" href="#Scenario:">&#182;</a></h2><p>This example instantiates a UCO bundle of objects relating to the deployment of a honeypot in jsonld format.</p>
-<p>A honeypot is instantiated by teamX for an APT group called APTZ with the desired tactic of credential access and specific method of entrance through a honeytoken.</p>
+<p>The usage of this example is to demonstrate how events during a deception operation will appear in regards to a timeline with datetime properties.</p>
 
 </div>
 </div>
@@ -14603,9 +14602,55 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol>
-<li>Add relevant UCO and AE prefixes</li>
-</ol>
+<p><img src="01-23-2022-OperationalHoneypot.drawio.png" alt="alt text" title="01-23-2022-OperationalHoneypot"></p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="1.-Event-1-(highlighted-in-green)">1. Event 1 (highlighted in green)<a class="anchor-link" href="#1.-Event-1-(highlighted-in-green)">&#182;</a></h3><p>The first Deploy action is representative of "def-deploy-honeytoken" as outlined in the narrative version. This action represents that on 12-12-2023-08:30, a defender deployed honeytoken credentials at a certain location and IP inside of an accessible, public file.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="2.-Event-2-(highlighted-in-red)">2. Event 2 (highlighted in red)<a class="anchor-link" href="#2.-Event-2-(highlighted-in-red)">&#182;</a></h3><p>The first Alert action describes when the first automated generated report or notification from a data source which indicates that a certain file was opened. This does not guarentee that the user will use or knows of the honeytoken, but we know the file has been opened.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="3.-Event-3-(highlighted-in-purple)">3. Event 3 (highlighted in purple)<a class="anchor-link" href="#3.-Event-3-(highlighted-in-purple)">&#182;</a></h3><p>The third alert from a network data source is generated when an adversary known IP or unknown IP ping sweeps the honeypot. Here, we do not necessarily know if this was intentional from the laid honeytoken, but we know they might try to gain direct access.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="4.-Event-4-(highlighted-in-blue)">4. Event 4 (highlighted in blue)<a class="anchor-link" href="#4.-Event-4-(highlighted-in-blue)">&#182;</a></h3><p>The last alert is generated when the internal logging system of the honeypot reports that a user successfully or unsuccessfully logged onto the system. Here, given we can inspect the logs afterward, we can be certain whether or not the honeytoken was successful. Furthermore, the end goal was to reach the honeypot and therefore despite whatever method, depending on the objective of the deception operation, this can be considered successful or not.</p>
 
 </div>
 </div>
@@ -14618,479 +14663,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"@context"</span><span class="p">:</span> <span class="p">{</span> 
-    <span class="s2">"kb"</span><span class="p">:</span> <span class="s2">"http://example.org/kb#"</span><span class="p">,</span> 
-    <span class="s2">"@vocab"</span><span class="p">:</span> <span class="s2">"http://example.org/ontology/local#"</span><span class="p">,</span> 
-    <span class="s2">"rdf"</span><span class="p">:</span> <span class="s2">"http://www.w3.org/1999/02/22-rdf-syntax-ns#"</span><span class="p">,</span> 
-    <span class="s2">"rdfs"</span><span class="p">:</span> <span class="s2">"http://www.w3.org/2000/01/rdf-schema#"</span><span class="p">,</span> 
-    <span class="s2">"xsd"</span><span class="p">:</span> <span class="s2">"http://www.w3.org/2001/XMLSchema#"</span> 
-    <span class="s2">"uco-action"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/action/"</span><span class="p">,</span> 
-    <span class="s2">"uco-configuration"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/configuration/"</span><span class="p">,</span> 
-    <span class="s2">"uco-core"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/core/"</span><span class="p">,</span> 
-    <span class="s2">"uco-identity"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/identity/"</span><span class="p">,</span> 
-    <span class="s2">"uco-location"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/location/"</span><span class="p">,</span> 
-    <span class="s2">"uco-observable"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/observable/"</span><span class="p">,</span> 
-    <span class="s2">"uco-tool"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/tool/"</span><span class="p">,</span> 
-    <span class="s2">"uco-types"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/types/"</span><span class="p">,</span> 
-    <span class="s2">"uco-vocabulary"</span><span class="p">:</span> <span class="s2">"https://ontology.unifiedcyberontology.org/uco/vocabulary/"</span><span class="p">,</span> 
-    <span class="s2">"engage"</span><span class="p">:</span> <span class="s2">"https://ontology.adversaryengagement.org/ae/engage/"</span><span class="p">,</span>
-    <span class="s2">"identity"</span><span class="p">:</span> <span class="s2">"https://ontology.adversaryengagement.org/ae/identity/"</span><span class="p">,</span>
-    <span class="s2">"role"</span><span class="p">:</span> <span class="s2">"https://ontology.adversaryengagement.org/ae/role/"</span><span class="p">,</span>
-    <span class="s2">"attack"</span><span class="p">:</span> <span class="s2">"https://ontology.adversaryengagement.org/ae/attack/"</span>
-<span class="p">}</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol>
-<li>The bundle instantiation and description</li>
-</ol>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span>    <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"kb:honeypot_02_02_2022"</span><span class="p">,</span> 
-    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"uco-observable:Bundle"</span><span class="p">,</span> 
-    <span class="s2">"uco-core:description"</span><span class="p">:</span> <span class="s2">"Honeypot deployed onto network by XTeam was accessed by honey token user-credentials."</span><span class="p">,</span> 
-    <span class="s2">"uco-core:object"</span><span class="p">:</span> <span class="p">[</span> <span class="o">...</span><span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol>
-<li>Honeypot object instantiation</li>
-</ol>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"kb:honeypot1"</span><span class="p">,</span> 
-<span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"engage:honeypot"</span><span class="p">,</span> 
-<span class="s2">"uco-core:hasFacet"</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>3.1 Attach a honeypotFacet or a honeyObjectFacet.</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"engage:honeypotFacet"</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>3.2. Time is treated as a namespace / domain object which has a TimeType and a Unit property. Timestamp inherits these properties to be able to be used as an object. time:Time is a property of the honeypotFacet / honeyObjectFacet</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"time:hasTime"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-    <span class="s2">"time:Timestamp"</span><span class="p">:</span> <span class="s2">"01-01-2022"</span><span class="p">,</span>
-    <span class="s2">"time:TimeType"</span><span class="p">:</span> <span class="s2">"deployment"</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-    <span class="s2">"time:Timestamp: "</span><span class="mi">02</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">2022</span><span class="s2">",</span>
-    <span class="s2">"time:TimeType"</span><span class="p">:</span> <span class="s2">"trigger"</span>
-    <span class="p">},</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>3.3. deployEntity is a property that is either an identity or a role. the entity/team that deployed/performed has an unique ID.</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"engage:deployEntity"</span><span class="p">:</span> <span class="p">[</span>
-<span class="p">{</span>
-    <span class="s2">"@id"</span> <span class="p">:</span> <span class="s2">"kb:ex1"</span><span class="p">,</span>
-    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"role:defender"</span>
-    <span class="s2">"engage:teamIdentifier"</span><span class="p">:</span> <span class="s2">"team-01"</span>
-    <span class="s2">"engage:teamMemberIdentifier"</span><span class="p">:</span> <span class="s2">"btm-01"</span>
-<span class="p">}</span>
-<span class="p">],</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>3.4. engage:TargetEntity is an optional property of honeypot which specifies an intended target entity or team at which it was deployed for.</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"role:hasTargetEntity"</span><span class="p">:</span> <span class="p">[</span>
-<span class="p">{</span>
-    <span class="s2">"@id"</span> <span class="p">:</span> <span class="s2">"kb:ex1"</span><span class="p">,</span>
-    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"role:adversary"</span>
-    <span class="s2">"engage:teamIdentifier"</span><span class="p">:</span> <span class="s2">"APTZ"</span>
-    <span class="s2">"engage:teamMemberIdentifier"</span><span class="p">:</span> <span class="s2">"APTZ"</span>
-<span class="p">}</span>
-<span class="p">],</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>3.5. objective:Objective is a property which is the immediate or long-term/mission goal relating to the scope and lifespan of the honeypot. objective:trap is one type of standard objectives for adversary engagement.</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"objective:hasObjective"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"kb:obj1"</span><span class="p">,</span>
-    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"objective:trap"</span>
-<span class="p">],</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>3.6. stagedAttackMethod is a property which preferences the expected TTP / attack methodology the deploying team/entity believes a targetEntity/team will use to gain access to the honeypot</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"engage:hasStagedAttackMethod"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-        <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"kb:sae1"</span><span class="p">,</span>
-        <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"attack:Attack"</span>
-        <span class="s2">"uco-core:description"</span><span class="p">:</span> <span class="s2">"Honeytoken credential access."</span>
-        <span class="s2">"technique"</span><span class="p">:</span> <span class="s2">"T1555.1"</span>
-        <span class="s2">"tactic"</span><span class="p">:</span> <span class="s2">"Credential Access"</span>
-    <span class="p">}</span>
-    <span class="p">],</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>3.7. Conventionally, honeypots are often described as high/low interactive which determines both the resource expenditure and expectations for a honeypot's usage in an operation.</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"engage:honeypotInteractionType"</span><span class="p">:</span> <span class="s2">"High"</span><span class="p">,</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>3.8. A stage is a UcoObject or Bundle which describes the desired perception a deploying team/entity has for a honeypot to a targetEntity/team. Here we can express it simply as an uco-observable android device with its standard usage of a facet.</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"engage:hasStage"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"kb:hhp-1"</span><span class="p">,</span>
-        <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"uco-observable:AndroidDevice"</span><span class="p">,</span>
-        <span class="s2">"uco-core:hasFacet"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"kb:ad-hp"</span><span class="p">,</span>
-            <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"uco-observable:AndroidDeviceFacet"</span>
-            <span class="s2">"uco-core:description"</span><span class="p">:</span> <span class="s2">"Honeypot Android device."</span>
-            <span class="s2">"uco-observable:androidFingerprint"</span><span class="p">:</span> <span class="s2">"13141516"</span><span class="p">,</span>
-            <span class="s2">"uco-observable:androidID"</span><span class="p">:</span> <span class="s2">"android-01m4"</span><span class="p">,</span>
-            <span class="s2">"uco-observable:androidVersion:"</span><span class="mf">1.0.2</span><span class="s2">"</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">],</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>3.9. stagedAttackSurface is the property which more specifically describes a component of the stage which the stagedAttackMethod directly applies to. This is useful for describing all expected methods of entry into a honeypot as objects themselves than through techniques.</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"engage:hasStagedAttackSurface"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-        <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"kb:sae1"</span><span class="p">,</span>
-        <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"uco-observable:port"</span>
-        <span class="s2">"uco-core:description"</span><span class="p">:</span> <span class="s2">"Port 22 has ssh service running that can be accessed via the honeytoken credentials."</span>
-        <span class="s2">"uco-core:hasFacet"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"uco-observable:port"</span>
-            <span class="s2">"uco-observable:port"</span><span class="p">:</span> <span class="mi">22</span>
-        <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">],</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>3.10. stageExit is an optional property in which trapping an adversary within a honeypot is not the end-goal. Instead, this can be used to describe the sequences of entering/exiting from stage to stage.</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"engage:hasStagedExit"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"engage:Exit"</span>
-            <span class="s2">"uco-core:description"</span><span class="p">:</span> <span class="s2">"Honeypot is meant to trap adversaries so there is not available exit."</span>
-        <span class="p">}</span>
-        <span class="p">],</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>3.11. HoneyObject as a property of a honeypot refers to any "props" and necessary supplemental deception objects which is directly related to this honeypot. In this case, the desired method of entry was to use honeyToken credentials. Normally we would use something as "CredentialFacet" to attach as a facet to the honeyToken, but UCO treats Credential as a property so we attach the object to honeyTokenFacet.</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">"engage:hasHoneyObject"</span><span class="p">:[</span>
-        <span class="p">{</span>
-            <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"ht-1"</span><span class="p">,</span>
-            <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"engage:honeyToken"</span><span class="p">,</span>
-            <span class="s2">"engage:honeyTokenIdentifier"</span><span class="p">:</span> <span class="s2">"honeytoken-1"</span>
-            <span class="s2">"uco-core:hasFacet"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="s2">"@id"</span><span class="p">:</span> <span class="s2">"ht-accountcred1"</span><span class="p">,</span>
-                <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"engage:honeyTokenFacet"</span><span class="p">,</span>
-                <span class="s2">"uco-core:object"</span><span class="p">:</span> <span class="p">[</span>
-                    <span class="s2">"uco-observable:Credential"</span><span class="p">:</span> <span class="s2">"HarryPeter01"</span>
-                <span class="p">]</span>
-            <span class="p">}</span>
-            <span class="p">]</span>
-        <span class="p">}</span>
-<span class="p">]</span> 		
-<span class="p">}</span>
-<span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
      </div>
