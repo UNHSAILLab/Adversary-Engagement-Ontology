@@ -1,22 +1,23 @@
 
 @prefix engage: <https://ontology.adversaryengagement.org/ae/engage/> . 
 @prefix identity: <https://ontology.adversaryengagement.org/ae/identity/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix objective: <https://ontology.RedTeamengagement.org/ae/objective/> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix role: <https://ontology.adversaryengagement.org/ae/role/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> . 
+@prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> . 
 @prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> . 
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix uco-role: <https://ontology.unifiedcyberontology.org/uco/role/> .
 
 
-identity:approachIdentifier a owl:DatatypeProperty ;
-    rdfs:label "approachIdentifier"@en ;
-    rdfs:comment "The unique identifier of the MITRE ENGAGE approach."@en ;
-    rdfs:range xsd:string .
+ 
+	
+objective:BlueTeam a identity:Team ;
+  rdfs:label "BlueTeam"@en;
+  rdfs:comment "An BlueTeam is an instance of a team with defender objectives."@en;
+  rdfs:range	uco-identity:Organization .
 
-identity:goalIdentifier a owl:DatatypeProperty ;
-    rdfs:label "goalIdentifier"@en ;
-    rdfs:comment "The unique identifier of the MITRE ENGAGE goal."@en ;
-    rdfs:range xsd:string .
 
  
 
@@ -27,17 +28,30 @@ engage:Persona a owl:Class,
     rdfs:subClassOf uco-identity:Identity ;
     sh:targetClass engage:Persona . 
 
-identity:tacticIdentifier a owl:DatatypeProperty ;
-    rdfs:label "tacticIdentifier"@en ;
-    rdfs:comment "The unique identifier of the MITRE ATT&CK tactic."@en ;
-    rdfs:range xsd:string .
+ 
+	
+objective:PurpleTeam a identity:Team ;
+  rdfs:label "PurpleTeam"@en;
+  rdfs:comment "An PurpleTeam is an instance of a team with post analysis objectives."@en;
+  rdfs:range	uco-identity:Organization .
 
-identity:teamIdentifier a owl:DatatypeProperty ;
-    rdfs:label "teamIdentifier"@en ;
-    rdfs:comment "The unique identifier of a team."@en ;
-    rdfs:range xsd:string .
 
-identity:techniqueIdentifier a owl:DatatypeProperty ;
-    rdfs:label "techniqueIdentifier"@en ;
-    rdfs:comment "The unique identifier of the MITRE ATT&CK technique."@en ;
-    rdfs:range xsd:string .
+ 
+	
+objective:RedTeam a identity:Team ;
+  rdfs:label "RedTeam"@en;
+  rdfs:comment "An RedTeam is an instance of a team with adversary objectives."@en;
+  rdfs:range	uco-identity:Organization .
+
+
+
+role:Team a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "Team"@en ;
+    rdfs:comment "The conventional reference to group of identities that are associated with some unified identity with a team objective"@en ;
+    rdfs:subClassOf uco-identity:Organization ;
+    sh:property [ sh:class engage:Objective ;
+            sh:nodeKind sh:IRI ;
+            sh:path objective:hasObjective ] ;
+    sh:targetClass role:Team .
+	

@@ -1,0 +1,139 @@
+{
+    "@context": {
+        "co": "http://purl.org/co/",
+        "kb": "http://example.org/kb/",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "uco-identity": "https://ontology.unifiedcyberontology.org/uco/identity/", 
+        "uco-action": "https://ontology.unifiedcyberontology.org/uco/action/", 
+        "uco-core": "https://ontology.unifiedcyberontology.org/uco/core/", 
+        "uco-observable": "https://ontology.unifiedcyberontology.org/uco/observable/",
+        "uco-types": "https://ontology.unifiedcyberontology.org/uco/types/",
+        "engage": "https://ontology.adversaryengagement.org/ae/engage/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@graph": [
+			{
+				"@type":"engage:Deploy",
+				"uco-core:startTime": "12-12-2023-08:30",
+				"uco-action:performer": [
+					{
+					"@type":"uco-identity:Person",
+					"uco-core:hasFacet":[
+						{
+						"@id":"kb:MaryJane",
+						"@type":"identity:SimpleNameFacet",
+						"uco-identity:familyName":"Mary",
+						"uco-identity:givenName":"Jane"
+						}
+						]
+					}
+			],
+				"uco-action:object": [
+					{
+					"@type":"engage:HoneyToken",
+					"uco-core:description":"Honeytoken credentials to a honeypot."
+					}
+					],
+				"uco-core:environment":[
+					{
+					"@type":"uco-core:Relationship",
+					"uco-core:kindofRelationship":"has_IP",
+					"uco-core:source":[
+					{
+					"@id":"kb:windowsxp",
+					"@type":"uco-observable:OperatingSystem",
+					"uco-core:name": "WindowsXP"
+					}
+					],
+					"uco-core:target":[
+					{
+						"@type":"uco-observable:IPAddress",
+						"uco-core:name":"XXX.YYY.ZZZ"
+					}
+					]
+					}
+				]
+			},
+				{
+					"@id":"kb:alert1",
+					"@type":"engage:Alert",
+					"uco-core:startTime": "12-15-2023-15:21",
+					"uco-action:performer":[
+						{
+							"@id":"kb:DataSource1",
+							"@type":"engage:DataSource",
+							"uco-core:name":"CanaryTokenAlert"
+						}],
+					"uco-action:object":[
+						{
+							"@type":"uco-role:Role",
+							"uco-core:name":"Defender"
+						}],
+					"engage:alertContext":[
+						{
+						"@type":"engage:Access",
+						"uco-action:performer":[
+							{
+								"@type":"uco-role:Role",
+								"uco-core:name":"Adversary"
+							}],
+						"uco-action:object":[
+							{
+								"@id":"kb:honeytoken1",
+								"@type":"engage:honeyToken"
+							},
+							{
+								"@id":"kb:file1",
+								"@type":"uco-observable:File",
+								"uco-core:name":"saved-login-creds.txt"
+							}
+							]
+						}
+						]
+				},
+				{
+					"@id":"kb:alert2",
+					"@type":"engage:Alert",
+					"uco-core:startTime":"12-15-2023-15:42",
+					"uco-action:performer":[
+						{
+							"@id":"kb:DataSource2",
+							"@type":"engage:DataSource",
+							"uco-core:name":"NetworkAlert"
+						}],
+					"uco-action:object":[
+						{
+							"@type":"uco-role:Role",
+							"uco-core:name":"Defender"
+						}
+						],
+					"engage:alertContext":[
+						{
+						"@type":"uco-observable:IPv6Address",
+						"uco-core:name":"known-adversary-ip"
+						}
+						]
+				},
+					   {
+						"@type":"engage:Access",
+						"uco-action:performer":[
+							{
+								"@type":"uco-role:Role",
+								"uco-core:name":"Adversary"
+							}
+							],
+						"uco-action:object":[
+							{
+							  "@type":"engage:Honeypot",
+								"uco-core:name":"Windows XP"
+							}
+							],
+						"uco-core:instrument":[
+							{
+								"@id":"kb:honeytoken1",
+								"@type":"engage:honeyToken"
+							}
+							]
+						}
+    ]
+}

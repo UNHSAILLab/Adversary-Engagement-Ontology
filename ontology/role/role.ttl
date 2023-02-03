@@ -1,22 +1,22 @@
 
-@prefix identity: <https://ontology.adversaryengagement.org/ae/identity/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix role: <https://ontology.adversaryengagement.org/ae/role/> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> .
-@prefix uco-role: <https://ontology.unifiedcyberontology.org/uco/role/> .
+@prefix objective: <https://ontology.adversaryengagement.org/ae/objective/> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> . 
+@prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> . 
+@prefix uco-role: <https://ontology.unifiedcyberontology.org/uco/role/> . 
 
 
-
-role:Team a owl:Class,
-        sh:NodeShape ;
-    rdfs:label "Team"@en ;
-    rdfs:comment "The conventional reference to group of agents that are associated with some unified identity with a team objective"@en ;
-    rdfs:subClassOf uco-identity:Organization ;
-    sh:property [ sh:datatype xsd:Literal ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path identity:teamIdentifier ] ;
-    sh:targetClass role:Team .
+ 
 	
+objective:Adversary a uco-role:Role ;
+  rdfs:label "Adversary"@en;
+  rdfs:comment "An adversary is an instance of a contextualized role that holds opposing interests to a defender role."@en;
+  rdfs:range	uco-identity:Identity .
+
+
+ 
+	
+objective:Defender a uco-role:Role ;
+  rdfs:label "Defender"@en;
+  rdfs:comment "An defender is an instance of a contextualized role that defends some object or asset for some objective."@en;
+  rdfs:range	uco-identity:Identity .

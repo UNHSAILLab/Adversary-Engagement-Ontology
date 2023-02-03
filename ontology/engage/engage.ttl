@@ -1,5 +1,4 @@
 
-@prefix attack: <https://ontology.adversaryengagement.org/ae/attack/> .
 @prefix engage: <https://ontology.adversaryengagement.org/ae/engage/> . 
 @prefix owl: <http://www.w3.org/2002/07/owl#> . 
 @prefix pattern: <https://ontology.unifiedcyberontology.org/uco/pattern/> .
@@ -11,7 +10,7 @@
 @prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> . 
 @prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> .
 @prefix uco-observable: <https://ontology.unifiedcyberontology.org/uco/observable/> . 
-@prefix uco-tool: <https://ontology.unifiedcyberontology.org/uco/tool/> . 
+@prefix uco-types: <https://ontology.unifiedcyberontology.org/uco/types/> . 
 @prefix vocabulary: <https://ontology.adversaryengagement.org/ae/vocabulary/> . 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -65,29 +64,11 @@ engage:Deploy a owl:Class,
     sh:targetClass engage:Deploy .
 
 
-
-engage:Detect a owl:Class,
-        sh:NodeShape ;
-    rdfs:label "Detect"@en ;
-    rdfs:comment "Detect is an observational action which some entity identifies an adversarial entity, adversarial behaviors or signatures from data-source(s)."@en ;
-    rdfs:subClassOf uco-action:Action ; 
-	sh:property [
-		sh:datatype xsd:string ;
-		sh:hasValue "detect" ;
-		sh:maxCount "1"^^xsd:integer ;
-		sh:minCount "1"^^xsd:integer ;
-		sh:nodeKind sh:Literal ;
-		sh:path uco-core:name ;
-	] ;
-    sh:targetClass engage:Detect .
-
-
 engage:Obfuscate a owl:Class,
         sh:NodeShape ;
     rdfs:label "Obfuscate"@en ;
     rdfs:comment "Obfuscate is a transformative action an entity or tool performs to some object to reduce available information associated with that object."@en ;
-    rdfs:subClassOf uco-action:Action,
-		engage:respond ;
+    rdfs:subClassOf engage:Respond ;
 	sh:property [
 		sh:datatype xsd:string ;
 		sh:hasValue "obfuscate" ;
@@ -120,8 +101,21 @@ engage:Breadcrumb a owl:Class,
         sh:NodeShape ; 
     rdfs:label "Breadcrumb"@en ; 
     rdfs:comment " A Breadcrumb is a set of objects placed to be at least partially, sequentially interacted by an adversary to ellicit an explicit response, often in the context of lateral movement."@en ; 
-    rdfs:subClassOf engage:LureObject ; 
+    rdfs:subClassOf engage:LureObject ;
     sh:targetClass engage:Breadcrumb . 
+
+ 
+
+engage:BreadcrumbTrail a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "BreadcrumbTrail"@en ; 
+    rdfs:comment "A breadcrumb trail is a sequence of observed breadcrumbs where order of observation matters."@en ; 
+    rdfs:subClassOf uco-types:Thread ;
+    sh:property [ sh:class uco-core:UcoObject ;
+					sh:minCount 1 ;
+					sh:nodeKind sh:IRI ;
+					sh:path engage:hasObjective ] ;
+    sh:targetClass engage:BreadcrumbTrail . 
 
  
 
@@ -142,19 +136,6 @@ engage:Decoy a owl:Class,
 
  
 
-engage:Event a owl:Class, 
-        sh:NodeShape ; 
-    rdfs:label "Event"@en ; 
-    rdfs:comment "An event is a collection of actions, entities, interactions designated to be performed at some sequentially indexed time in a narrative"@en ; 
-    rdfs:subClassOf uco-core:UcoObject ; 
-    sh:property [ sh:class uco-core:UcoObject ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path engage:hasEventScript ] ;
-    sh:targetClass engage:Event . 
-
- 
-
 engage:HoneyObject a owl:Class, 
         sh:NodeShape ; 
     rdfs:label "HoneyObject"@en ; 
@@ -169,18 +150,23 @@ engage:Honeypot a owl:Class,
     rdfs:comment " A controlled environment intended to be probed, compromised or attacked by adversaries or malware."@en ; 
     rdfs:subClassOf engage:Decoy ,
 		engage:HoneyObject ;
-    sh:property [ sh:datatype vocabulary:HoneypotInteractionTypeVocab ; 
-            sh:message "Value is outside the default vocabulary HoneypotInteractionTypeVocab." ; 
-            sh:path engage:honeypotInteractionType ; 
-            sh:severity sh:Info ], 
-        [ sh:maxCount 1 ; 
-            sh:nodeKind sh:Literal ; 
-            sh:or ( [ sh:datatype vocabulary:HoneypotInteractionTypeVocab ] [ sh:datatype xsd:string ] ) ; 
-            sh:path engage:honeypotInteractionType ], 
-        [ sh:message "Value is not member of the vocabulary HoneypotInteractionTypeVocab." ; 
-            sh:or ( [ sh:datatype vocabulary:HoneypotInteractionTypeVocab ; 
-                        sh:in vocabulary:HoneypotInteractionTypeVocab-members ] [ sh:datatype xsd:string ] ) ; 
-            sh:path engage:honeypotInteractionType ] ; 
+	sh:property [ sh:datatype vocabulary:HoneypotInteractionTypeVocab ;
+		sh:message "Value is outside the default vocabulary HoneypotInteractionTypeVocab." ;
+		sh:path engage:honeypotInteractionType ;
+		sh:severity sh:Info ;] ,
+	[ sh:maxCount "1"^^xsd:integer ;
+		sh:nodeKind sh:Literal ;
+		sh:or ([ sh:datatype vocabulary:HoneypotInteractionTypeVocab ;] [ sh:datatype xsd:string ;]) ;
+		sh:path engage:honeypotInteractionType ;] ,
+	[ sh:message "Value is not member of the vocabulary HoneypotInteractionTypeVocab." ;
+		sh:or ([ sh:datatype vocabulary:HoneypotInteractionTypeVocab ;
+				sh:in (
+					"High"^^vocabulary:HoneypotTypeVocab
+					"Low"^^vocabulary:HoneypotTypeVocab
+					"Dynamic"^^vocabulary:HoneypotTypeVocab
+				) ;
+				] [ sh:datatype xsd:string ;]) ;
+		sh:path engage:honeypotInteractionType ;] ;
     sh:targetClass engage:Honeypot . 
 
  
@@ -189,8 +175,7 @@ engage:HoneyToken a owl:Class,
         sh:NodeShape ; 
     rdfs:label "HoneyToken"@en ; 
     rdfs:comment "A honey token gives an adversary direct access to a honeypot."@en ; 
-    rdfs:subClassOf uco-core:UcoObject,
-		engage:HoneyObject ;
+    rdfs:subClassOf engage:HoneyObject ;
     sh:targetClass engage:HoneyToken . 
 
  
@@ -200,6 +185,10 @@ engage:LureObject a owl:Class,
     rdfs:label "LureObject"@en ; 
     rdfs:comment " An object or set of objects used to attract an adversary that has the perception of high value regardless if it actually has high value."@en ; 
     rdfs:subClassOf uco-core:UcoObject ;
+    sh:property [ sh:class uco-core:UcoObject ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path engage:hasCharacterization ] ;
     sh:targetClass engage:LureObject . 
  
 
@@ -207,7 +196,7 @@ engage:Malware a owl:Class,
         sh:NodeShape ; 
     rdfs:label "Malware"@en ; 
     rdfs:comment "Malware is an explicit, complex, multi-functional, crafted tool, software, or program for malicious purposes. Not all malicious tools are Malware though."@en ; 
-    rdfs:subClassOf uco-tool:MaliciousTool ; 
+    rdfs:subClassOf uco-core:UcoObject ; 
     sh:targetClass engage:Malware . 
 
  
@@ -219,9 +208,30 @@ engage:Narrative a owl:Class,
     rdfs:subClassOf uco-core:UcoObject ; 
     sh:property [ sh:class uco-core:UcoObject ;
             sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path engage:hasStoryline ] ;
+            sh:nodeKind sh:IRI ;
+            sh:path engage:hasStoryline ] ,
+		[ sh:class uco-core:UcoObject ;
+					sh:minCount 1 ;
+					sh:nodeKind sh:IRI ;
+					sh:path engage:hasObjective ] ;
     sh:targetClass engage:Narrative . 
+
+ 
+
+engage:PlannedEvent a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "PlannedEvent"@en ; 
+    rdfs:comment "An PlannedEvent is a collection of actions, entities, interactions designated to be performed at some sequentially indexed time in a narrative"@en ; 
+    rdfs:subClassOf uco-core:UcoObject ; 
+    sh:property [ sh:class uco-core:UcoObject ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path engage:eventContext ] ,
+	[ sh:class uco-core:UcoObject ;
+				sh:minCount 1 ;
+				sh:nodeKind sh:IRI ;
+				sh:path engage:hasObjective ] ;
+    sh:targetClass engage:PlannedEvent . 
 
  
 
@@ -230,6 +240,10 @@ engage:PocketLitter a owl:Class,
     rdfs:label "PocketLitter"@en ; 
     rdfs:comment "Pocket litter describes objects placed prior or during an adversary engagement operation for the purpose of realism."@en ; 
     rdfs:subClassOf uco-core:UcoObject ; 
+    sh:property [ sh:class uco-core:UcoObject ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path engage:hasCharacterization ] ;
     sh:targetClass engage:PocketLitter . 
 
  
@@ -258,23 +272,62 @@ engage:Stage a owl:Class,
     rdfs:label "Stage"@en ;
     rdfs:comment "A stage is a desired perception of an object or environment for an intended audience or entity which actors act/perform within and upon."@en ;
     rdfs:subClassOf uco-core:UcoObject ;
+    sh:property [ sh:class uco-core:UcoObject ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path engage:hasCharacterization ] ;
     sh:targetClass engage:Stage .
+
+
+
+
+engage:StageAttackSurface a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "StageAttackSurface"@en ;
+    rdfs:comment "An intentionally configured attack surface described by UcoObjects."@en ;
+    rdfs:subClassOf uco-core:UcoObject ;
+    sh:property [ sh:class uco-core:UcoObject ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path engage:hasCharacterization ] ;
+    sh:targetClass engage:StageAttackSurface .
 
  
 
 engage:Storyline a owl:Class, 
         sh:NodeShape ; 
     rdfs:label "Storyline"@en ; 
-    rdfs:comment "A storyline is an indexed sequence of monotonic events as an expected trajectory for a narrative."@en ; 
-    rdfs:subClassOf engage:Narrative ; 
+    rdfs:comment "A storyline is a sequence of semi-ordered planned events as an expected trajectory for a narrative."@en ; 
+    rdfs:subClassOf uco-types:Thread ;
     sh:targetClass engage:Storyline . 
  
 
-engage:hasEventScript a owl:ObjectProperty, 
+engage:alertContext a owl:ObjectProperty, 
         sh:NodeShape ; 
-    rdfs:label "hasEventScript"@en ; 
-    rdfs:comment "An event script is relationship between the event object and the set of actions."@en ; 
+    rdfs:label "alertContext"@en ; 
+    rdfs:comment "An alert context describes the association of actions and objects relating to an alert."@en ; 
     rdfs:range uco-core:UcoObject .
+ 
+
+engage:eventContext a owl:ObjectProperty, 
+        sh:NodeShape ; 
+    rdfs:label "eventContext"@en ; 
+    rdfs:comment "An event context describes the association of actions and objects relating to an event."@en ; 
+    rdfs:range uco-core:UcoObject .
+ 
+
+engage:hasCharacterization a owl:ObjectProperty, 
+        sh:NodeShape ; 
+    rdfs:label "hasCharacterization"@en ; 
+    rdfs:comment "hasCharacterization is an object property which describes the literal UcoObjects which compose a deception object or adversary engagement concept."@en ; 
+    rdfs:range uco-core:UcoObject .
+ 
+
+engage:hasEvent a owl:ObjectProperty, 
+        sh:NodeShape ; 
+    rdfs:label "hasEvent"@en ; 
+    rdfs:comment "hasEvent is the event property associated exclusively with an event."@en ; 
+    rdfs:range engage:Event .
  
 
 engage:hasStoryline a owl:ObjectProperty, 

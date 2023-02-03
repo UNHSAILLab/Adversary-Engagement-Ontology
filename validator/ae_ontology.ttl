@@ -1,6 +1,6 @@
 
 @prefix attack: <https://ontology.adversaryengagement.org/ae/attack/> .
-@prefix engage: <https://ontology.adversaryengagement.org/ae/engage/> . 
+@prefix engage: <https://ontology.adversaryengagement.org/ae/engage/> .
 @prefix identity: <https://ontology.adversaryengagement.org/ae/identity/> .
 @prefix objective: <https://ontology.adversaryengagement.org/ae/objective/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -15,20 +15,10 @@
 @prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> .
 @prefix uco-observable: <https://ontology.unifiedcyberontology.org/uco/observable/> . 
 @prefix uco-role: <https://ontology.unifiedcyberontology.org/uco/role/> .
-@prefix uco-tool: <https://ontology.unifiedcyberontology.org/uco/tool/> . 
 @prefix vocabulary: <https://ontology.adversaryengagement.org/ae/vocabulary/> . 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
-
-
-
-attack:Attack a owl:Class,
-        sh:NodeShape ;
-    rdfs:label "Attack"@en ;
-    rdfs:comment "An attack is some adversarial behavioral classification from an attack framework."@en ;
-    rdfs:subClassOf attack:AttackPattern ;
-    sh:targetClass attack:Attack .
 
 
 
@@ -37,16 +27,8 @@ attack:AttackPattern a owl:Class,
     rdfs:label "AttackPattern"@en ;
     rdfs:comment "An attack pattern is some adversarial classification for a set of sub-actions from an attack framework that is associated with some objective."@en ;
     rdfs:subClassOf uco-action:ActionPattern ;
-    sh:property [ sh:datatype xsd:Literal ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path identity:techniqueIdentifier ] ,
-		[ sh:datatype xsd:Literal ;
-				sh:maxCount 1 ;
-				sh:nodeKind sh:BlankNodeOrIRI ;
-				sh:path identity:tacticIdentifier ] ,
-		[ sh:class engage:Objective ; 
-					sh:nodeKind sh:BlankNodeOrIRI ; 
+    sh:property [ sh:class engage:Objective ; 
+					sh:nodeKind sh:IRI ; 
 					sh:path objective:hasObjective ] ;
     sh:targetClass attack:AttackPattern .
 
@@ -58,6 +40,19 @@ attack:cyberKillChain a owl:Class,
     rdfs:comment "An cyber kill chain is a ordered sequence of actions or events describing a lifecycle from some framework."@en ;
     rdfs:subClassOf uco-action:ActionLifecycle ;
     sh:targetClass attack:cyberKillChain .
+
+
+
+
+attack:DefensePattern a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "AttackPattern"@en ;
+    rdfs:comment "An defense pattern is some defensive classification for a set of sub-actions from a defense framework that is associated with some objective."@en ;
+    rdfs:subClassOf uco-action:ActionPattern ;
+    sh:property [ sh:class engage:Objective ; 
+					sh:nodeKind sh:IRI ; 
+					sh:path objective:hasObjective ] ;
+    sh:targetClass attack:DefensePattern .
 
 
 
@@ -109,29 +104,11 @@ engage:Deploy a owl:Class,
     sh:targetClass engage:Deploy .
 
 
-
-engage:Detect a owl:Class,
-        sh:NodeShape ;
-    rdfs:label "Detect"@en ;
-    rdfs:comment "Detect is an observational action which some entity identifies an adversarial entity, adversarial behaviors or signatures from data-source(s)."@en ;
-    rdfs:subClassOf uco-action:Action ; 
-	sh:property [
-		sh:datatype xsd:string ;
-		sh:hasValue "detect" ;
-		sh:maxCount "1"^^xsd:integer ;
-		sh:minCount "1"^^xsd:integer ;
-		sh:nodeKind sh:Literal ;
-		sh:path uco-core:name ;
-	] ;
-    sh:targetClass engage:Detect .
-
-
 engage:Obfuscate a owl:Class,
         sh:NodeShape ;
     rdfs:label "Obfuscate"@en ;
     rdfs:comment "Obfuscate is a transformative action an entity or tool performs to some object to reduce available information associated with that object."@en ;
-    rdfs:subClassOf uco-action:Action,
-		engage:respond ;
+    rdfs:subClassOf engage:Respond ;
 	sh:property [
 		sh:datatype xsd:string ;
 		sh:hasValue "obfuscate" ;
@@ -164,7 +141,7 @@ engage:Breadcrumb a owl:Class,
         sh:NodeShape ; 
     rdfs:label "Breadcrumb"@en ; 
     rdfs:comment " A Breadcrumb is a set of objects placed to be at least partially, sequentially interacted by an adversary to ellicit an explicit response, often in the context of lateral movement."@en ; 
-    rdfs:subClassOf engage:LureObject ; 
+    rdfs:subClassOf engage:LureObject ;
     sh:targetClass engage:Breadcrumb . 
 
  
@@ -186,19 +163,6 @@ engage:Decoy a owl:Class,
 
  
 
-engage:Event a owl:Class, 
-        sh:NodeShape ; 
-    rdfs:label "Event"@en ; 
-    rdfs:comment "An event is a collection of actions, entities, interactions designated to be performed at some sequentially indexed time in a narrative"@en ; 
-    rdfs:subClassOf uco-core:UcoObject ; 
-    sh:property [ sh:class uco-core:UcoObject ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path engage:hasEventScript ] ;
-    sh:targetClass engage:Event . 
-
- 
-
 engage:HoneyObject a owl:Class, 
         sh:NodeShape ; 
     rdfs:label "HoneyObject"@en ; 
@@ -213,18 +177,23 @@ engage:Honeypot a owl:Class,
     rdfs:comment " A controlled environment intended to be probed, compromised or attacked by adversaries or malware."@en ; 
     rdfs:subClassOf engage:Decoy ,
 		engage:HoneyObject ;
-    sh:property [ sh:datatype vocabulary:HoneypotInteractionTypeVocab ; 
-            sh:message "Value is outside the default vocabulary HoneypotInteractionTypeVocab." ; 
-            sh:path engage:honeypotInteractionType ; 
-            sh:severity sh:Info ], 
-        [ sh:maxCount 1 ; 
-            sh:nodeKind sh:Literal ; 
-            sh:or ( [ sh:datatype vocabulary:HoneypotInteractionTypeVocab ] [ sh:datatype xsd:string ] ) ; 
-            sh:path engage:honeypotInteractionType ], 
-        [ sh:message "Value is not member of the vocabulary HoneypotInteractionTypeVocab." ; 
-            sh:or ( [ sh:datatype vocabulary:HoneypotInteractionTypeVocab ; 
-                        sh:in vocabulary:HoneypotInteractionTypeVocab-members ] [ sh:datatype xsd:string ] ) ; 
-            sh:path engage:honeypotInteractionType ] ; 
+	sh:property [ sh:datatype vocabulary:HoneypotInteractionTypeVocab ;
+		sh:message "Value is outside the default vocabulary HoneypotInteractionTypeVocab." ;
+		sh:path engage:honeypotInteractionType ;
+		sh:severity sh:Info ;] ,
+	[ sh:maxCount "1"^^xsd:integer ;
+		sh:nodeKind sh:Literal ;
+		sh:or ([ sh:datatype vocabulary:HoneypotInteractionTypeVocab ;] [ sh:datatype xsd:string ;]) ;
+		sh:path engage:honeypotInteractionType ;] ,
+	[ sh:message "Value is not member of the vocabulary HoneypotInteractionTypeVocab." ;
+		sh:or ([ sh:datatype vocabulary:HoneypotInteractionTypeVocab ;
+				sh:in (
+					"High"^^vocabulary:HoneypotTypeVocab
+					"Low"^^vocabulary:HoneypotTypeVocab
+					"Dynamic"^^vocabulary:HoneypotTypeVocab
+				) ;
+				] [ sh:datatype xsd:string ;]) ;
+		sh:path engage:honeypotInteractionType ;] ;
     sh:targetClass engage:Honeypot . 
 
  
@@ -233,8 +202,7 @@ engage:HoneyToken a owl:Class,
         sh:NodeShape ; 
     rdfs:label "HoneyToken"@en ; 
     rdfs:comment "A honey token gives an adversary direct access to a honeypot."@en ; 
-    rdfs:subClassOf uco-core:UcoObject,
-		engage:HoneyObject ;
+    rdfs:subClassOf engage:HoneyObject ;
     sh:targetClass engage:HoneyToken . 
 
  
@@ -244,6 +212,10 @@ engage:LureObject a owl:Class,
     rdfs:label "LureObject"@en ; 
     rdfs:comment " An object or set of objects used to attract an adversary that has the perception of high value regardless if it actually has high value."@en ; 
     rdfs:subClassOf uco-core:UcoObject ;
+    sh:property [ sh:class uco-core:UcoObject ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path engage:hasCharacterization ] ;
     sh:targetClass engage:LureObject . 
  
 
@@ -251,7 +223,7 @@ engage:Malware a owl:Class,
         sh:NodeShape ; 
     rdfs:label "Malware"@en ; 
     rdfs:comment "Malware is an explicit, complex, multi-functional, crafted tool, software, or program for malicious purposes. Not all malicious tools are Malware though."@en ; 
-    rdfs:subClassOf uco-tool:MaliciousTool ; 
+    rdfs:subClassOf uco-core:UcoObject ; 
     sh:targetClass engage:Malware . 
 
  
@@ -263,9 +235,30 @@ engage:Narrative a owl:Class,
     rdfs:subClassOf uco-core:UcoObject ; 
     sh:property [ sh:class uco-core:UcoObject ;
             sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path engage:hasStoryline ] ;
+            sh:nodeKind sh:IRI ;
+            sh:path engage:hasStoryline ] ,
+		[ sh:class uco-core:UcoObject ;
+					sh:minCount 1 ;
+					sh:nodeKind sh:IRI ;
+					sh:path engage:hasObjective ] ;
     sh:targetClass engage:Narrative . 
+
+ 
+
+engage:PlannedEvent a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "PlannedEvent"@en ; 
+    rdfs:comment "An PlannedEvent is a collection of actions, entities, interactions designated to be performed at some sequentially indexed time in a narrative"@en ; 
+    rdfs:subClassOf uco-core:UcoObject ; 
+    sh:property [ sh:class uco-core:UcoObject ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path engage:eventContext ] ,
+	[ sh:class uco-core:UcoObject ;
+				sh:minCount 1 ;
+				sh:nodeKind sh:IRI ;
+				sh:path engage:hasObjective ] ;
+    sh:targetClass engage:PlannedEvent . 
 
  
 
@@ -274,6 +267,10 @@ engage:PocketLitter a owl:Class,
     rdfs:label "PocketLitter"@en ; 
     rdfs:comment "Pocket litter describes objects placed prior or during an adversary engagement operation for the purpose of realism."@en ; 
     rdfs:subClassOf uco-core:UcoObject ; 
+    sh:property [ sh:class uco-core:UcoObject ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path engage:hasCharacterization ] ;
     sh:targetClass engage:PocketLitter . 
 
  
@@ -302,7 +299,25 @@ engage:Stage a owl:Class,
     rdfs:label "Stage"@en ;
     rdfs:comment "A stage is a desired perception of an object or environment for an intended audience or entity which actors act/perform within and upon."@en ;
     rdfs:subClassOf uco-core:UcoObject ;
+    sh:property [ sh:class uco-core:UcoObject ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path engage:hasCharacterization ] ;
     sh:targetClass engage:Stage .
+
+
+
+
+engage:StageAttackSurface a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "StageAttackSurface"@en ;
+    rdfs:comment "An intentionally configured attack surface described by UcoObjects."@en ;
+    rdfs:subClassOf uco-core:UcoObject ;
+    sh:property [ sh:class uco-core:UcoObject ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:path engage:hasCharacterization ] ;
+    sh:targetClass engage:StageAttackSurface .
 
  
 
@@ -310,15 +325,36 @@ engage:Storyline a owl:Class,
         sh:NodeShape ; 
     rdfs:label "Storyline"@en ; 
     rdfs:comment "A storyline is an indexed sequence of monotonic events as an expected trajectory for a narrative."@en ; 
-    rdfs:subClassOf engage:Narrative ; 
+    rdfs:subClassOf uco-core:UcoObject ; 
     sh:targetClass engage:Storyline . 
  
 
-engage:hasEventScript a owl:ObjectProperty, 
+engage:alertContext a owl:ObjectProperty, 
         sh:NodeShape ; 
-    rdfs:label "hasEventScript"@en ; 
-    rdfs:comment "An event script is relationship between the event object and the set of actions."@en ; 
+    rdfs:label "alertContext"@en ; 
+    rdfs:comment "An alert context describes the association of actions and objects relating to an alert."@en ; 
     rdfs:range uco-core:UcoObject .
+ 
+
+engage:eventContext a owl:ObjectProperty, 
+        sh:NodeShape ; 
+    rdfs:label "eventContext"@en ; 
+    rdfs:comment "An event context describes the association of actions and objects relating to an event."@en ; 
+    rdfs:range uco-core:UcoObject .
+ 
+
+engage:hasCharacterization a owl:ObjectProperty, 
+        sh:NodeShape ; 
+    rdfs:label "hasCharacterization"@en ; 
+    rdfs:comment "hasCharacterization is an object property which describes the literal UcoObjects which compose a deception object or adversary engagement concept."@en ; 
+    rdfs:range uco-core:UcoObject .
+ 
+
+engage:hasEvent a owl:ObjectProperty, 
+        sh:NodeShape ; 
+    rdfs:label "hasEvent"@en ; 
+    rdfs:comment "hasEvent is the event property associated exclusively with an event."@en ; 
+    rdfs:range engage:Event .
  
 
 engage:hasStoryline a owl:ObjectProperty, 
@@ -334,15 +370,13 @@ engage:honeypotInteractionType a owl:DatatypeProperty ;
             owl:unionOf ( vocabulary:HoneypotInteractionTypeVocab xsd:string ) ] .
 
 
-identity:approachIdentifier a owl:DatatypeProperty ;
-    rdfs:label "approachIdentifier"@en ;
-    rdfs:comment "The unique identifier of the MITRE ENGAGE approach."@en ;
-    rdfs:range xsd:string .
+ 
+	
+objective:BlueTeam a identity:Team ;
+  rdfs:label "BlueTeam"@en;
+  rdfs:comment "An BlueTeam is an instance of a team with defender objectives."@en;
+  rdfs:range	uco-identity:Organization .
 
-identity:goalIdentifier a owl:DatatypeProperty ;
-    rdfs:label "goalIdentifier"@en ;
-    rdfs:comment "The unique identifier of the MITRE ENGAGE goal."@en ;
-    rdfs:range xsd:string .
 
  
 
@@ -353,29 +387,227 @@ engage:Persona a owl:Class,
     rdfs:subClassOf uco-identity:Identity ;
     sh:targetClass engage:Persona . 
 
-identity:tacticIdentifier a owl:DatatypeProperty ;
-    rdfs:label "tacticIdentifier"@en ;
-    rdfs:comment "The unique identifier of the MITRE ATT&CK tactic."@en ;
-    rdfs:range xsd:string .
+ 
+	
+objective:PurpleTeam a identity:Team ;
+  rdfs:label "PurpleTeam"@en;
+  rdfs:comment "An PurpleTeam is an instance of a team with post analysis objectives."@en;
+  rdfs:range	uco-identity:Organization .
 
-identity:teamIdentifier a owl:DatatypeProperty ;
-    rdfs:label "teamIdentifier"@en ;
-    rdfs:comment "The unique identifier of a team."@en ;
-    rdfs:range xsd:string .
 
-identity:techniqueIdentifier a owl:DatatypeProperty ;
-    rdfs:label "techniqueIdentifier"@en ;
-    rdfs:comment "The unique identifier of the MITRE ATT&CK technique."@en ;
-    rdfs:range xsd:string .
+ 
+	
+objective:RedTeam a identity:Team ;
+  rdfs:label "RedTeam"@en;
+  rdfs:comment "An RedTeam is an instance of a team with adversary objectives."@en;
+  rdfs:range	uco-identity:Organization .
+
+
+
+role:Team a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "Team"@en ;
+    rdfs:comment "The conventional reference to group of identities that are associated with some unified identity with a team objective"@en ;
+    rdfs:subClassOf uco-identity:Organization ;
+    sh:property [ sh:class engage:Objective ;
+            sh:nodeKind sh:IRI ;
+            sh:path objective:hasObjective ] ;
+    sh:targetClass role:Team .
+	
+
 
  
 
-objective:Denial a owl:Class, 
+objective:CommandAndControl a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "CommandAndControl"@en ; 
+    rdfs:comment " An CommandAndControl objective is defined by MITRE ATTACK tactic: Command and Control consists of techniques that adversaries may use to communicate with systems under their control within a victim network."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:CommandAndControl . 
+ 
+
+objective:CredentialAccess a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "CredentialAccess"@en ; 
+    rdfs:comment " An CredentialAccess objective is defined by MITRE ATTACK tactic: Credential Access consists of techniques for stealing credentials like account names and passwords."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:CredentialAccess . 
+ 
+
+objective:DevelopResource a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "DevelopResource"@en ; 
+    rdfs:comment " An DevelopResource (Resource Development) objective is defined by MITRE ATTACK tactic: Resource Development consists of techniques that involve adversaries creating, purchasing, or compromising/stealing resources that can be used to support targeting. Such resources include infrastructure, accounts, or capabilities."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:DevelopResource . 
+ 
+
+objective:Discover a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Discover"@en ; 
+    rdfs:comment " An Discover (discovery) objective is defined by MITRE ATTACK tactic: Discovery consists of techniques an adversary may use to gain knowledge about the system and internal network."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Discover . 
+ 
+
+objective:Evade a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Evade"@en ; 
+    rdfs:comment " An evade objective is to avoid detection from some defense or entity."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Evade . 
+ 
+
+objective:Execute a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Execute"@en ; 
+    rdfs:comment " An Execute (Execution) objective is defined by MITRE ATTACK tactic: Execution consists of techniques that result in adversary-controlled code running on a local or remote system."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Execute . 
+ 
+
+objective:Exfilitrate a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Exfilitrate"@en ; 
+    rdfs:comment " An exfilitrate objective is an adversary objective to move native data to external sources."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Exfilitrate . 
+ 
+
+objective:Impact a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Impact"@en ; 
+    rdfs:comment " An Impact objective is defined by MITRE ATTACK tactic: Impact consists of techniques that adversaries use to disrupt availability or compromise integrity by manipulating business and operational processes."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Impact . 
+ 
+
+objective:InitialAccess a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "InitialAccess"@en ; 
+    rdfs:comment " An InitialAccess objective is defined by MITRE ATTACK tactic: Initial Access consists of techniques that use various entry vectors to gain their initial foothold within a network."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:InitialAccess . 
+ 
+
+objective:LateralMove a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "LateralMove"@en ; 
+    rdfs:comment " An LateralMove(LateralMovement) objective is defined by MITRE ATTACK tactic: Lateral Movement consists of techniques that adversaries use to enter and control remote systems on a network."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:LateralMove . 
+ 
+
+objective:Persist a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Persist"@en ; 
+    rdfs:comment " An persist objective is maintain availability and access to some resource."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Persist . 
+ 
+
+objective:PrivilegeEscalate a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "PrivilegeEscalate"@en ; 
+    rdfs:comment " An PrivilegeEscalate(PrivilegeEscalation) objective is defined by MITRE ATTACK tactic: Privilege Escalation consists of techniques that adversaries use to gain higher-level permissions on a system or network."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:PrivilegeEscalate . 
+ 
+
+objective:Reconnaissance a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Reconnaissance"@en ; 
+    rdfs:comment " An reconnaissance objective is to gather information on a target entity or organization including by not limited to behavior, tactics, techniques, procedures and preferences."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Reconnaissance . 
+ 
+
+objective:Affect a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Affect"@en ; 
+    rdfs:comment " An affect objective is defined by MITRE ENGAGE: Negatively impact the adversaries operations."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Affect . 
+ 
+
+objective:Collect a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Collect"@en ; 
+    rdfs:comment " A collect objective defined by MITRE ENGAGE: Gather adversary tools, observe tactics, and collect other raw intelligence about the adversary’s activity. Cocurrently, from MITRE ATTACK's Collection tactic: Collection consists of techniques adversaries may use to gather information and the sources information is collected from that are relevant to following through on the adversary's objectives."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Collect . 
+ 
+
+objective:Detect a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Detect"@en ; 
+    rdfs:comment " A detect objective defined by MITRE ENGAGE: Establish or maintain awareness regarding adversary activity."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Detect . 
+ 
+
+objective:Direct a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Direct"@en ; 
+    rdfs:comment " A direct objective defined by MITRE ENGAGE: Encourage or discourage the adversary from conducting their operation as intended. "@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Direct . 
+ 
+
+objective:Disrupt a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Disrupt"@en ; 
+    rdfs:comment " A Disrupt objective defined by MITRE ENGAGE: Impair an adversary’s ability to conduct their operation as intended. "@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Disrupt . 
+ 
+
+objective:Elicit a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Elicit"@en ; 
+    rdfs:comment " An affect objective is defined by MITRE ENGAGE: Learn about adversaries tactics, techniques, and procedures (TTPs)."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Elicit . 
+ 
+
+objective:Expose a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Expose"@en ; 
+    rdfs:comment " An expose objective is defined by MITRE ENGAGE: Reveal the presence of ongoing adversary operations."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Expose . 
+ 
+
+objective:Motivate a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Motivate"@en ; 
+    rdfs:comment " A Motivate objective defined by MITRE ENGAGE: Encourage an adversary to conduct part or all of their mission. "@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Motivate . 
+ 
+
+objective:Prevent a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Prevent"@en ; 
+    rdfs:comment " A prevent objective defined by MITRE ENGAGE: Stop all or part of the adversary’s ability to conduct their operation as intended."@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Prevent . 
+ 
+
+objective:Reassure a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "Reassure"@en ; 
+    rdfs:comment " A Reassure objective defined by MITRE ENGAGE: Add authenticity to deceptive components to convince an adversary that an environment is real. "@en ; 
+    rdfs:subClassOf objective:Objective ;
+    sh:targetClass objective:Reassure . 
+ 
+
+objective:Deny a owl:Class, 
         sh:NodeShape ; 
     rdfs:label "Denial"@en ; 
-    rdfs:comment " An denial objective is to limit an adversary's capabilities or accessibility to a resource."@en ; 
+    rdfs:comment " An deny objective is to limit an adversary's capabilities or accessibility to a resource."@en ; 
     rdfs:subClassOf objective:Objective ;
-    sh:targetClass objective:Denial . 
+    sh:targetClass objective:Deny . 
  
 
 objective:ElicitBehavior a owl:Class, 
@@ -386,68 +618,27 @@ objective:ElicitBehavior a owl:Class,
     sh:targetClass objective:ElicitBehavior . 
  
 
-objective:Evasion a owl:Class, 
-        sh:NodeShape ; 
-    rdfs:label "Evasion"@en ; 
-    rdfs:comment " An evasion objective is to avoid detection from some defense or entity."@en ; 
-    rdfs:subClassOf objective:Objective ;
-    sh:targetClass objective:Evasion . 
- 
-
-objective:Exfilitration a owl:Class, 
-        sh:NodeShape ; 
-    rdfs:label "Exfilitration"@en ; 
-    rdfs:comment " An exfilitrate objective is an adversary objective to move native data to external sources."@en ; 
-    rdfs:subClassOf objective:Objective ;
-    sh:targetClass objective:Exfilitration . 
- 
-
 objective:hasObjective a owl:ObjectProperty, 
         sh:NodeShape ; 
     rdfs:label "hasObjective"@en ; 
     rdfs:comment "An object which can be associated with an objective."@en ; 
-    rdfs:subClassOf uco-core:UcoObject ;	
-    sh:targetClass objective:hasObjective . 
+    rdfs:range uco-core:UcoObject .
  
 
 objective:Lure a owl:Class, 
         sh:NodeShape ; 
     rdfs:label "Lure"@en ; 
-    rdfs:comment " An resource lure objective is have an adversary laterally move or take actions to reach some target lure, usually performed through the deployment of breadcrumbs and honeypots."@en ; 
-    rdfs:subClassOf objective:Objective ;
+    rdfs:comment " An lure objective is have an adversary laterally move or take actions to reach some target lure, usually performed through the deployment of breadcrumbs and honeypots."@en ; 
+    rdfs:subClassOf objective:ElicitBehavior ;
     sh:targetClass objective:Lure . 
 
 
 objective:Objective a owl:Class, 
         sh:NodeShape ; 
     rdfs:label "Objective"@en ; 
-    rdfs:comment " An objective is associated with a sequence of actions which is reasoned and optimized for in the context of adversarial engagement."@en ; 
+    rdfs:comment " An objective is a goal or goal-state associated with an object which is optimized for or desired to be satisified."@en ; 
     rdfs:subClassOf uco-core:UcoObject ;	
-    sh:property [ sh:datatype xsd:Literal ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path identity:tacticIdentifier ] ,
-	[ sh:datatype xsd:Literal ;
-				sh:maxCount 1 ;
-				sh:nodeKind sh:BlankNodeOrIRI ;
-				sh:path identity:goalIdentifier ] ;
     sh:targetClass objective:Objective . 
- 
-
-objective:Persistence a owl:Class, 
-        sh:NodeShape ; 
-    rdfs:label "Persistence"@en ; 
-    rdfs:comment " An persistence objective is maintain availability and access to some resource."@en ; 
-    rdfs:subClassOf objective:Objective ;
-    sh:targetClass objective:Persistence . 
- 
-
-objective:Reconnaissance a owl:Class, 
-        sh:NodeShape ; 
-    rdfs:label "Reconnaissance"@en ; 
-    rdfs:comment " An reconnaissance objective is to gather information on a target entity or organization including by not limited to behavior, tactics, techniques, procedures and preferences."@en ; 
-    rdfs:subClassOf objective:Objective ;
-    sh:targetClass objective:Reconnaissance . 
  
 
 objective:TimeSink a owl:Class, 
@@ -475,19 +666,20 @@ objective:Trap a owl:Class,
     sh:targetClass objective:Trap . 
 
 
-
-role:Team a owl:Class,
-        sh:NodeShape ;
-    rdfs:label "Team"@en ;
-    rdfs:comment "The conventional reference to group of agents that are associated with some unified identity with a team objective"@en ;
-    rdfs:subClassOf uco-identity:Organization ;
-    sh:property [ sh:datatype xsd:Literal ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path identity:teamIdentifier ] ;
-    sh:targetClass role:Team .
+ 
 	
+objective:Adversary a uco-role:Role ;
+  rdfs:label "Adversary"@en;
+  rdfs:comment "An adversary is an instance of a contextualized role that holds opposing interests to a defender role."@en;
+  rdfs:range	uco-identity:Identity .
 
+
+ 
+	
+objective:Defender a uco-role:Role ;
+  rdfs:label "Defender"@en;
+  rdfs:comment "An defender is an instance of a contextualized role that defends some object or asset for some objective."@en;
+  rdfs:range	uco-identity:Identity .
 
 
 

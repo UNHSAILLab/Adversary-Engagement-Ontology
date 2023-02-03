@@ -1,5 +1,6 @@
 
 @prefix attack: <https://ontology.adversaryengagement.org/ae/attack/> .
+@prefix engage: <https://ontology.adversaryengagement.org/ae/engage/> .
 @prefix identity: <https://ontology.adversaryengagement.org/ae/identity/> .
 @prefix objective: <https://ontology.adversaryengagement.org/ae/objective/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -12,30 +13,13 @@
 
 
 
-attack:Attack a owl:Class,
-        sh:NodeShape ;
-    rdfs:label "Attack"@en ;
-    rdfs:comment "An attack is some adversarial behavioral classification from an attack framework."@en ;
-    rdfs:subClassOf attack:AttackPattern ;
-    sh:targetClass attack:Attack .
-
-
-
 attack:AttackPattern a owl:Class,
         sh:NodeShape ;
     rdfs:label "AttackPattern"@en ;
     rdfs:comment "An attack pattern is some adversarial classification for a set of sub-actions from an attack framework that is associated with some objective."@en ;
     rdfs:subClassOf uco-action:ActionPattern ;
-    sh:property [ sh:datatype xsd:Literal ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:path identity:techniqueIdentifier ] ,
-		[ sh:datatype xsd:Literal ;
-				sh:maxCount 1 ;
-				sh:nodeKind sh:BlankNodeOrIRI ;
-				sh:path identity:tacticIdentifier ] ,
-		[ sh:class engage:Objective ; 
-					sh:nodeKind sh:BlankNodeOrIRI ; 
+    sh:property [ sh:class engage:Objective ; 
+					sh:nodeKind sh:IRI ; 
 					sh:path objective:hasObjective ] ;
     sh:targetClass attack:AttackPattern .
 
@@ -47,3 +31,16 @@ attack:cyberKillChain a owl:Class,
     rdfs:comment "An cyber kill chain is a ordered sequence of actions or events describing a lifecycle from some framework."@en ;
     rdfs:subClassOf uco-action:ActionLifecycle ;
     sh:targetClass attack:cyberKillChain .
+
+
+
+
+attack:DefensePattern a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "AttackPattern"@en ;
+    rdfs:comment "An defense pattern is some defensive classification for a set of sub-actions from a defense framework that is associated with some objective."@en ;
+    rdfs:subClassOf uco-action:ActionPattern ;
+    sh:property [ sh:class engage:Objective ; 
+					sh:nodeKind sh:IRI ; 
+					sh:path objective:hasObjective ] ;
+    sh:targetClass attack:DefensePattern .
