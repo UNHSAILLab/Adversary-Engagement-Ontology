@@ -21,12 +21,12 @@ identity:BlueTeam a identity:Team ;
 
  
 
-engage:Persona a owl:Class, 
+identity:Persona a owl:Class, 
         sh:NodeShape ; 
     rdfs:label "Persona"@en ; 
     rdfs:comment " An persona is a facticious entity created to serve a purpose in a deception operation."@en ; 
     rdfs:subClassOf uco-identity:Identity ;
-    sh:targetClass engage:Persona . 
+    sh:targetClass identity:Persona . 
 
  
 	
@@ -45,7 +45,7 @@ identity:RedTeam a identity:Team ;
 
 
 
-role:Team a owl:Class,
+identity:Team a owl:Class,
         sh:NodeShape ;
     rdfs:label "Team"@en ;
     rdfs:comment "The conventional reference to group of identities that are associated with some unified identity with a team objective"@en ;
@@ -53,5 +53,5 @@ role:Team a owl:Class,
     sh:property [ sh:class engage:Objective ;
             sh:nodeKind sh:IRI ;
             sh:path objective:hasObjective ] ;
-    sh:targetClass role:Team .
+    sh:targetClass identity:Team .
 	
