@@ -1,5 +1,5 @@
 # Adversary Engagement (AE) Ontology
-![alt text](https://github.com/UNHSAILLab/ae_ontology/blob/main/ae_diagram.PNG?raw=true)
+![alt text](https://github.com/UNHSAILLab/AdvEng/blob/main/ae_diagram.PNG)
 
 Visit our AE webpage for more information, contextual usage, and motivation for this ontology.
 
