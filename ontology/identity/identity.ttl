@@ -13,7 +13,7 @@
 
  
 	
-objective:BlueTeam a identity:Team ;
+identity:BlueTeam a identity:Team ;
   rdfs:label "BlueTeam"@en;
   rdfs:comment "An BlueTeam is an instance of a team with defender objectives."@en;
   rdfs:range	uco-identity:Organization .
@@ -30,7 +30,7 @@ engage:Persona a owl:Class,
 
  
 	
-objective:PurpleTeam a identity:Team ;
+identity:PurpleTeam a identity:Team ;
   rdfs:label "PurpleTeam"@en;
   rdfs:comment "An PurpleTeam is an instance of a team with post analysis objectives."@en;
   rdfs:range	uco-identity:Organization .
@@ -38,7 +38,7 @@ objective:PurpleTeam a identity:Team ;
 
  
 	
-objective:RedTeam a identity:Team ;
+identity:RedTeam a identity:Team ;
   rdfs:label "RedTeam"@en;
   rdfs:comment "An RedTeam is an instance of a team with adversary objectives."@en;
   rdfs:range	uco-identity:Organization .
