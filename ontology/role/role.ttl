@@ -8,7 +8,7 @@
 
  
 	
-identity:Adversary a uco-role:Role ;
+role:Adversary a uco-role:Role ;
   rdfs:label "Adversary"@en;
   rdfs:comment "An adversary is an instance of a contextualized role that holds opposing interests to a defender role."@en;
   rdfs:range	uco-identity:Identity .
@@ -16,7 +16,7 @@ identity:Adversary a uco-role:Role ;
 
  
 	
-identity:Defender a uco-role:Role ;
+role:Defender a uco-role:Role ;
   rdfs:label "Defender"@en;
   rdfs:comment "An defender is an instance of a contextualized role that defends some object or asset for some objective."@en;
   rdfs:range	uco-identity:Identity .
