@@ -23,7 +23,7 @@ The Adversary Engagement Ontology (AEO) is defined as a specific domain ontology
 
 # Overview #
 
-There are 65 Classes and 7 properties in the AEO. The Classes Tree and Properties Tree are listed below. 
+There are 67 Classes and 7 properties in the AEO. The Classes Tree and Properties Tree are listed below. 
 
 ![alt text](https://github.com/UNHSAILLab/AdvEng/blob/main/ae_diagram.PNG?raw=true)
 
@@ -92,9 +92,12 @@ There are 65 Classes and 7 properties in the AEO. The Classes Tree and Propertie
   │    │     ├── objective:Track
   │    │     ├── objective:Trap
   ├── uco-identity:Identity
-  │    ├── engage:Persona
+  │    ├── identiy:Persona
   ├── uco-identity:Organization
-  │    ├── role:Team
+  │    ├── identity:Team
+  ├── uco-types: Thread
+  │    ├── engage:BreadcrumTrail
+  │    ├── engage:Storyline
   ├── vocabulary:HoneypotInteractionTypeVocab
 ```
 
