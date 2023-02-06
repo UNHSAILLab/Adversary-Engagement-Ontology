@@ -11,17 +11,35 @@ import argparse
 
 # Released under MITRE PRS 18-4297.
 
-
-
 def validate_graphs(eg_graph, egtyp, og_graph, ogtyp):
-       # Graph that needs to be compared, it could be an example
+      """
+      Validates the example graph against the Ontology graph.
+      
+      Parameters
+      ----------
+      example_graph: graph object to be validated
+      egtyp: type of the graph object
+      og_graph: graph object containing the SHACL shapes to validate with
+      ogtyp: type of the ontology graph object 
+
+      Returns
+      -------
+      results: a three-component tuple containing:
+        conforms: a bool, indicating whether or not the example_graph conform to the og_graph
+        result_graph: a Graph object built according to the SHACL specification's Validation Report structure
+        results_text: python string representing a verbose textual representation of the Validation Report
+    
+      """
+      
       example_graph = rdflib.Graph()
       example_graph.parse(eg_graph,format=egtyp)
       ontology_graph = rdflib.Graph()
       ontology_graph.parse(og_graph, format=ogtyp)
-      r = validate(example_graph,
-            shacl_graph=ontology_graph,
-            ont_graph=ontology_graph, # this could be UCO
+      uco_graph= rdflib.Graph()
+      uco_graph.parse("uco.ttl", format="turtle")  
+      results = validate(data_graph= example_graph,
+            shacl_graph= ontology_graph,
+            ont_graph=ontology_graph, 
             inference='rdfs',
             abort_on_first=False,
             allow_infos=False,
@@ -30,15 +48,38 @@ def validate_graphs(eg_graph, egtyp, og_graph, ogtyp):
             advanced=False,
             js=False,
             debug=False)
-      return r
+      
+      # Release the memory
+      del example_graph
+      del ontology_graph,uco_graph
+      return results
 
-def diff_graphs(eg_graph, egtyp, og_graph, ogtyp, ignore_bnodes=False):
-    print("-")
+def diff_graphs(eg_graph, egtyp, og_graph, ogtyp, ignore_bnodes=True):
+    """
+    Checks if the subjects and predicates in the example graphs are in the ontology graph or not
+    Parameters
+    ----------
+    example_graph: A graph object to be validated
+    egtyp: The type of the graph object
+    og_graph: A graph object containing the SHACL shapes to validate with
+    ogtyp:  The type of the ontology graph object
+
+    Returns
+    -------
+    None
+
+    Output
+    _______
+    Prints out whether the subjects and predicates matched or not in the ontology graph and example graph
+
+
+    """
+
     eg_subject, eg_predicate, eg_object = [],[],[]
     og_subject, og_predicate, og_object= [],[],[]
     
     example_graph = rdflib.Graph()
-    example_graph.parse(eg_graph,format=egtyp)
+    example_graph.parse(eg_graph, format=egtyp)
     
     ontology_graph = rdflib.Graph()
     ontology_graph.parse(og_graph, format=ogtyp)
@@ -79,7 +120,7 @@ def diff_graphs(eg_graph, egtyp, og_graph, ogtyp, ignore_bnodes=False):
     except AttributeError as attr_err:
             print("[iter] Error parsing graph: %s" % str(attr_err))
 
-    # Check if the predicate in examples are in the Ontology or not
+    # Check if the predicates in the examples are in the Ontology or not
     for predicate in eg_predicate:
         if (predicate in og_predicate)\
             or (predicate in og_subject) \
@@ -88,18 +129,15 @@ def diff_graphs(eg_graph, egtyp, og_graph, ogtyp, ignore_bnodes=False):
         else:
             print(f"[XX] {predicate} is in Example but not in Onto")
     
-    # Check if the predicate in examples are in the Ontology or not
+    # Check if the subjects in the examples are in the Ontology or not
     for subject in eg_subject:
         if (subject in og_predicate)\
             or (subject in og_subject) \
             or (subject in og_object):
-            print(f"Match {subject} in both Example and in Onto")
+            print(f"Match {subject} in both Example Graph and in Ontology Graph")
         else:
-            print(f"[XX] {subject} is in Example but not in Onto")
+            print(f"[XX] {subject} is in Example Graph but not in Ontology Graph")
 
-
-
-        
 
 if __name__ == "__main__":
     parser= argparse.ArgumentParser()
@@ -111,17 +149,10 @@ if __name__ == "__main__":
         parser.add_argument("-val", required=False, help="Must be true to perform validation", default=True)
         parser.add_argument("-diff", required=False, help="Must be true to perform RDFDiff ")
     except argparse.ArgumentError as err:
-        print(f"{err} must be there")
+        print(f" {err} must be there")
     finally:
         parser.parse_args()
         args=parser.parse_args()                                                                                                                                                                                                                                                      
-
-
-        
-
-
-    #eg_graph="case5sub.ttl"
-    #og_graph="case5.ttl"
 
     if args.val:
         conforms, results_graph, results_text = \
@@ -129,9 +160,9 @@ if __name__ == "__main__":
                             args.ontographtype , 
                             args.examplegraph, 
                             args.examplegraphtype)
-        print("\n\n Conforms: ", conforms)
-        print("\n\n Results graph \n\n", results_graph)
-        print("\n\n results_text: ",results_text)
+        print("\n Conforms: ", conforms)
+        print("\n Results graph: ", results_graph)
+        print("\n Results text: ",results_text)
     if args.diff:
         diff_graphs(args.ontologygraph, 
                         args.ontographtype,
