@@ -7,13 +7,13 @@ The AE ontology aims to standardize and simplify the documentation and transmiss
 ## Use cases ##
 The Adversary Engagement Ontology (AEO) serves several purposes:
 
--It provides a systematic approach for the development, representation, and management of concepts and categories within the domain of cyber adversary engagement.
+- It provides a systematic approach for the development, representation, and management of concepts and categories within the domain of cyber adversary engagement.
 
--It fosters a shared understanding of concepts and their relationships in Adversary Engagement, which can be utilized for communication, reasoning, and decision-making in forensic analysis.
+- It fosters a shared understanding of concepts and their relationships in Adversary Engagement, which can be utilized for communication, reasoning, and decision-making in forensic analysis.
 
--Scholars, researchers, and academicians can utilize AEO to define AE concepts, establish relationships between them, and organize them into a structured framework.
+- Scholars, researchers, and academicians can utilize AEO to define AE concepts, establish relationships between them, and organize them into a structured framework.
 
--Practitioners and vendors can leverage AEO to configure deployments and set up the necessary tools for risk mitigation.
+- Practitioners and vendors can leverage AEO to configure deployments and set up the necessary tools for risk mitigation.
 
 ![alt text](https://github.com/UNHSAILLab/AdvEng/blob/main/ae_diagram.PNG?raw=true)
 
