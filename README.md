@@ -4,12 +4,16 @@
 
 The AE ontology aims to standardize and simplify the documentation and transmission of the deployment configuration of cyber adversary engagement tools and techniques. This helps to ensure a consistent and efficient approach to adversary engagement across organizations and domains. The standardization provided by the AE ontology enables better collaboration and sharing of information among stakeholders, leading to more effective utilization of adversary engagement operations.
 
-# Use cases #
+## Use cases ##
 The Adversary Engagement Ontology (AEO) serves several purposes:
-It provides a systematic approach for the development, representation, and management of concepts and categories within the domain of cyber adversary engagement.
-It fosters a shared understanding of concepts and their relationships in Adversary Engagement, which can be utilized for communication, reasoning, and decision-making in forensic analysis.
-Scholars, researchers, and academicians can utilize AEO to define AE concepts, establish relationships between them, and organize them into a structured framework.
-Practitioners and vendors can leverage AEO to configure deployments and set up the necessary tools for risk mitigation.
+
+-It provides a systematic approach for the development, representation, and management of concepts and categories within the domain of cyber adversary engagement.
+
+-It fosters a shared understanding of concepts and their relationships in Adversary Engagement, which can be utilized for communication, reasoning, and decision-making in forensic analysis.
+
+-Scholars, researchers, and academicians can utilize AEO to define AE concepts, establish relationships between them, and organize them into a structured framework.
+
+-Practitioners and vendors can leverage AEO to configure deployments and set up the necessary tools for risk mitigation.
 
 ![alt text](https://github.com/UNHSAILLab/AdvEng/blob/main/ae_diagram.PNG?raw=true)
 
@@ -35,7 +39,7 @@ There are 67 Classes and 7 properties in the AEO. The Classes Tree and Propertie
 
 ## Examples ##
 There are three examples inside the `\examples\` folder.
-- [Breadcrumb](https://github.com/UNHSAILLab/Adversary-Engagement-Ontology/tree/main/examples/Breadcrumb
+- [Breadcrumb](https://github.com/UNHSAILLab/Adversary-Engagement-Ontology/tree/main/examples/Breadcrumb)
 - [Fluid Deception](https://github.com/UNHSAILLab/Adversary-Engagement-Ontology/tree/main/examples/Fluid%20Deception)
 - [Honeypot](https://github.com/UNHSAILLab/Adversary-Engagement-Ontology/tree/main/examples/Honeypot)
 
