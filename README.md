@@ -132,3 +132,11 @@ There are three examples inside the `\examples\` folder.
 The current release of AEO is 1.1.0.
 
 The latest release of the Adversary Engagement Ontology (AEO), version 1.1.0, has incorporated necessary refinements and updates. In accordance with Semantic Versioning principles, the AEO will continue to accept additive improvements, but any backwards-incompatible changes will be deferred until the 2.0.0 release, which is planned to occur within a minimum period of 6 months and a maximum period of 12 months.
+
+## I have a question!
+
+Before you post a Github issue or send an email ensure you've done this checklist:
+
+1. [Determined scope](https://aeontology.sail-lab.org/start.php#scope) of your task. It is not necessary for most parties to understand all aspects of the ontology, mapping methods, and supporting tools.
+
+2. Search the [Issues tab](https://github.com/UNHSAILLab/Adversary-Engagement-Ontology/issues) for duplicative issues.  Please know, however, that the AEO community primarily tracks issues in a Jira instance available to community members.  The Github Issue tracker can still be a way AEO issues are reported by users who have not registered with the community, but work on the issues will be scheduled and tracked in Jira.
