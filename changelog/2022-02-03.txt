@@ -1,0 +1,13 @@
+CHANGES TO ONTOLOGY
+--
+[ADDED] engage:BreadcrumbTrail
+[CHANGED] Storyline now uses `uco-types:Thread` as a parent class
+
+
+CHANGES TO REPO
+--
+[RERENDERED] New Docs according to the ontology changes
+[UPDATED] AE Diagram
+[UPDATED] Honeypot example is now functional with the ontology & changes
+[NEW] Fluid deception example has been added. Please see their MD files for more details on usage.
+[NEW] Breadcrumb example has been added. Please see their MD files for more details on usage.
