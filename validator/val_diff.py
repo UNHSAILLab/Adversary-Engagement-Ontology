@@ -1,15 +1,14 @@
+# This software was produced for the U.S. Government under contract FA8702-23-C-0001,
+# and is subject to the Rights in Data-General Clause 52.227-14, Alt. IV (DEC 2007)
+# ©2023 The MITRE Corporation. Published under the Linux Foundation’s Cyber Domain Ontology project’s Apache 2 license.
+# Released under MITRE PRS 18-4297.
+
 from pyshacl import validate
 import rdflib
 import sys
 import argparse
 
-# This software was produced for the U.S. Government under contract FA8702-23-C-0001,
 
-# and is subject to the Rights in Data-General Clause 52.227-14, Alt. IV (DEC 2007)
-
-# ©2023 The MITRE Corporation. Published under the Linux Foundation’s Cyber Domain Ontology project’s Apache 2 license.
-
-# Released under MITRE PRS 18-4297.
 
 def validate_graphs(eg_graph, egtyp, og_graph, ogtyp):
       """
