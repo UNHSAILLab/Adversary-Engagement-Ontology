@@ -1,48 +1,22 @@
-
-@prefix engage: <https://ontology.adversaryengagement.org/ae/engage/> . 
+@prefix engage: <https://ontology.adversaryengagement.org/ae/engage/> .
 @prefix identity: <https://ontology.adversaryengagement.org/ae/identity/> .
-@prefix objective: <https://ontology.RedTeamengagement.org/ae/objective/> . 
-@prefix owl: <http://www.w3.org/2002/07/owl#> . 
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix objective: <https://ontology.RedTeamengagement.org/ae/objective/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix role: <https://ontology.adversaryengagement.org/ae/role/> .
-@prefix sh: <http://www.w3.org/ns/shacl#> . 
-@prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> . 
-@prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> . 
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> .
+@prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> .
 @prefix uco-role: <https://ontology.unifiedcyberontology.org/uco/role/> .
 
 
- 
-	
-identity:BlueTeam a identity:Team ;
-  rdfs:label "BlueTeam"@en;
-  rdfs:comment "An BlueTeam is an instance of a team with defender objectives."@en;
-  rdfs:range	uco-identity:Organization .
 
-
- 
-
-identity:Persona a owl:Class, 
-        sh:NodeShape ; 
-    rdfs:label "Persona"@en ; 
-    rdfs:comment " An persona is a facticious entity created to serve a purpose in a deception operation."@en ; 
+identity:Persona a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "Persona"@en ;
+    rdfs:comment " An persona is a facticious entity created to serve a purpose in a deception operation."@en ;
     rdfs:subClassOf uco-identity:Identity ;
-    sh:targetClass identity:Persona . 
-
- 
-	
-identity:PurpleTeam a identity:Team ;
-  rdfs:label "PurpleTeam"@en;
-  rdfs:comment "An PurpleTeam is an instance of a team with post analysis objectives."@en;
-  rdfs:range	uco-identity:Organization .
-
-
- 
-	
-identity:RedTeam a identity:Team ;
-  rdfs:label "RedTeam"@en;
-  rdfs:comment "An RedTeam is an instance of a team with adversary objectives."@en;
-  rdfs:range	uco-identity:Organization .
-
+    sh:targetClass identity:Persona .
 
 
 identity:Team a owl:Class,
@@ -50,8 +24,10 @@ identity:Team a owl:Class,
     rdfs:label "Team"@en ;
     rdfs:comment "The conventional reference to group of identities that are associated with some unified identity with a team objective"@en ;
     rdfs:subClassOf uco-identity:Organization ;
-    sh:property [ sh:class engage:Objective ;
-            sh:nodeKind sh:IRI ;
-            sh:path objective:hasObjective ] ;
+    sh:property
+      [
+        sh:class engage:Objective ;
+        sh:nodeKind sh:IRI ;
+        sh:path objective:hasObjective
+      ] ;
     sh:targetClass identity:Team .
-	
