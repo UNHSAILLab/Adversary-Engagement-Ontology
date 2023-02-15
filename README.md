@@ -17,7 +17,7 @@ The Adversary Engagement Ontology (AEO) serves several purposes:
 
 - Practitioners and vendors can leverage AEO to configure deployments and set up the necessary tools for risk mitigation.
 
-![alt text](https://github.com/UNHSAILLab/AdvEng/blob/main/ae_diagram.PNG?raw=true)
+![alt text](https://github.com/UNHSAILLab/AdvEng/blob/main/ae_diagram.png?raw=true)
 
 ## Objectives ##
 
