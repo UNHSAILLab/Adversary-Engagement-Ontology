@@ -1,4 +1,4 @@
-# imports: https://ontology.adversaryengagement.org/ae/engage/0.0.1
+# imports: https://ontology.adversaryengagement.org/ae/engagement/0.0.1
 # imports: https://ontology.adversaryengagement.org/ae/vocabulary/0.0.1
 # imports: https://ontology.unifiedcyberontology.org/uco/uco/1.0.0
 
@@ -18,11 +18,10 @@
 	dct:title "Adversary Engagement Sub-Ontology (ae)"@en ;
 	owl:imports
 		<https://ontology.adversaryengagement.org/ae/attack/0.0.1> ,
-		<https://ontology.adversaryengagement.org/ae/engage/0.0.1> ,
+		<https://ontology.adversaryengagement.org/ae/engagement/0.0.1> ,
 		<https://ontology.adversaryengagement.org/ae/identity/0.0.1> ,
 		<https://ontology.adversaryengagement.org/ae/objective/0.0.1> ,
 		<https://ontology.adversaryengagement.org/ae/role/0.0.1> ,
-		<https://ontology.adversaryengagement.org/ae/time/0.0.1> ,
 		<https://ontology.adversaryengagement.org/ae/vocabulary/0.0.1> ,
 		<https://ontology.unifiedcyberontology.org/uco/uco/1.0.0>
 		;

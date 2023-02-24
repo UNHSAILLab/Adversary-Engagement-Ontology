@@ -1,5 +1,5 @@
+
 @prefix attack: <https://ontology.adversaryengagement.org/ae/attack/> .
-@prefix engage: <https://ontology.adversaryengagement.org/ae/engage/> .
 @prefix identity: <https://ontology.adversaryengagement.org/ae/identity/> .
 @prefix objective: <https://ontology.adversaryengagement.org/ae/objective/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -19,7 +19,7 @@ attack:AttackPattern a owl:Class,
     rdfs:subClassOf uco-action:ActionPattern ;
     sh:property
       [
-        sh:class engage:Objective ;
+        sh:class engagement:Objective ;
 	sh:nodeKind sh:IRI ;
 	sh:path objective:hasObjective
       ] ;
@@ -44,7 +44,7 @@ attack:DefensePattern a owl:Class,
     rdfs:subClassOf uco-action:ActionPattern ;
     sh:property
       [
-        sh:class engage:Objective ;
+        sh:class engagement:Objective ;
 	sh:nodeKind sh:IRI ;
 	sh:path objective:hasObjective 
       ] ;

@@ -1,33 +1,30 @@
-@prefix role: <https://ontology.adversaryengagement.org/ae/role/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> .
-@prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> .
-@prefix uco-role: <https://ontology.unifiedcyberontology.org/uco/role/> .
 
+@prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> . 
+@prefix uco-role: <https://ontology.unifiedcyberontology.org/uco/role/> . 
 
-
-
+ 
+	
 role:Adversary a uco-role:Role ;
   uco-core:name "Adversary"@en;
   uco-core:description "An adversary is an instance of a contextualized role that holds opposing interests to a defender role."@en;
   .
 
-role:Defender a uco-role:Role ;
-  uco-core:name "Defender"@en;
-  uco-core:description "An defender is an instance of a contextualized role that defends some object or asset for some objective."@en;
-  .
-
+	
 role:BlueTeam a uco-role:Role ;
   uco-core:name "Blue Team"@en;
   uco-core:description "An organizational role focused on ensuring the defensibility of targeted environments against attack."@en;
   .
-
-role:RedTeam a uco-role:Role ;
-  uco-core:name "Red Team"@en;
-  uco-core:description "An organizational role focused on evaluating the defensibility of targeted environments against attack by actively emulating the persona, perspective, practices and actions of adversaries."@en;
+	
+role:Defender a uco-role:Role ;
+  uco-core:name "Defender"@en;
+  uco-core:description "An defender is an instance of a contextualized role that defends some object or asset for some objective."@en;
   .
-
+	
 role:PurpleTeam a uco-role:Role ;
   uco-core:name "Purple Team"@en;
   uco-core:description "An organizational role focused on evaluating and ensuring the defensibility of targeted environments against attack through a collaborative combination of BlueTeam (outward focused defense) and RedTeam (inward focused emulation of adversary attack) roles."@en;
+  .
+role:RedTeam a uco-role:Role ;
+  uco-core:name "Red Team"@en;
+  uco-core:description "An organizational role focused on evaluating the defensibility of targeted environments against attack by actively emulating the persona, perspective, practices and actions of adversaries."@en;
   .

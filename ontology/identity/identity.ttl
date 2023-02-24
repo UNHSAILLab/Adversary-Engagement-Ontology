@@ -1,15 +1,15 @@
-@prefix engage: <https://ontology.adversaryengagement.org/ae/engage/> .
-@prefix identity: <https://ontology.adversaryengagement.org/ae/identity/> .
-@prefix objective: <https://ontology.RedTeamengagement.org/ae/objective/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix identity: <https://ontology.adversaryengagement.org/ae/identity/> . 
+@prefix objective: <https://ontology.adversaryengagement.org/ae/objective/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
 @prefix role: <https://ontology.adversaryengagement.org/ae/role/> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> .
-@prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> . 
+@prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> . 
 @prefix uco-role: <https://ontology.unifiedcyberontology.org/uco/role/> .
 
 
+ 
 
 identity:Persona a owl:Class,
         sh:NodeShape ;
@@ -26,7 +26,7 @@ identity:Team a owl:Class,
     rdfs:subClassOf uco-identity:Organization ;
     sh:property
       [
-        sh:class engage:Objective ;
+        sh:class objective:Objective ;
         sh:nodeKind sh:IRI ;
         sh:path objective:hasObjective
       ] ;
