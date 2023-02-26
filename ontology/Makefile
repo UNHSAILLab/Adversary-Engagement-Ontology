@@ -18,7 +18,7 @@ top_srcdir := ..
 .PHONY: \
   check-master \
   check-attack \
-  check-engage \
+  check-engagement \
   check-identity \
   check-objective \
   check-role \
@@ -33,7 +33,7 @@ top_srcdir := ..
 
 check: \
   check-master \
-  check-engage \
+  check-engagement \
   check-identity \
   check-objective \
   check-role \
@@ -45,10 +45,10 @@ check-master: \
 	$(MAKE) \
 	  --directory master \
 	  check
-check-engage: \
+check-engagement: \
   $(top_srcdir)/.lib.done.log
 	$(MAKE) \
-	  --directory engage \
+	  --directory engagement \
 	  check
 check-identity: \
   $(top_srcdir)/.lib.done.log
@@ -73,7 +73,7 @@ check-vocabulary: \
 
 clean: \
   clean-master \
-  clean-engage \
+  clean-engagement \
   clean-identity \
   clean-objective \
   clean-role \
@@ -83,9 +83,9 @@ clean-master:
 	@$(MAKE) \
 	  --directory master \
 	  clean
-clean-engage:
+clean-engagement:
 	@$(MAKE) \
-	  --directory engage \
+	  --directory engagement \
 	  clean
 clean-identity:
 	@$(MAKE) \
