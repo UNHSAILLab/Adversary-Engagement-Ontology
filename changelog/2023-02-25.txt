@@ -1,0 +1,14 @@
+**See ![Sean Barnum](https://github.com/UNHSAILLab/Adversary-Engagement-Ontology/pull/1) pull request for list of changes.
+--
+ONTOLOGY CHANGES
+[REVISED] Objectives such as Lure, Detect, etc. are now individuals of objective:Objective
+[REVISED] RedTeam, BlueTeam, PurpleTeam, Adversary, Defender are now individuals of uco-role:Role
+[ADDED] Individuals of uco-core:Relationship(s) among objectives e.g. Relationship-Reassure-Elicit
+[RENAMED] engage namespace --> engagement namespace
+[RENAMED] engagement:hasCharacteristics --> engagement:hasCharacterization
+
+EXAMPLE CHANGES
+[UPDATE] Breadcrumb example - removal of stage relationship, name collisions, etc.
+[UPDATE] Honeypot example - removal of uco-action:performer from individual Defender/Adversary role to identity instance, name collisions, etc.
+[UPDATE] Fluid deception example - name collisions, etc.
+[UPDATE] `ae_diagram.png` is updated with more MITRE ENGAGE concepts, a few individuals are not shown in diagram such as Analyze
