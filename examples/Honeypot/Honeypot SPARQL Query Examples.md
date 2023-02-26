@@ -1,10 +1,23 @@
 ```python
-narrative_example = "Narrative/02-02-2023-Updated_HoneypotNarrativeExample.jsonld"
+# NOTICE
+
+# This software was produced for the U.S. Government under contract FA8702-23-C-0001,
+
+# and is subject to the Rights in Data-General Clause 52.227-14, Alt. IV (DEC 2007)
+
+# ©2023 The MITRE Corporation. Published under the Linux Foundation’s Cyber Domain Ontology project’s Apache 2 license.
+
+# Released under MITRE PRS 18-4297.
 ```
 
 
 ```python
-operation_example = "Operational/02-02-2023-OperationalHoneypot.jsonld"
+narrative_example = "Narrative/HoneypotNarrativeExample.jsonld"
+```
+
+
+```python
+operation_example = "Operational/OperationalHoneypot.jsonld"
 ```
 
 ## Example Query: "How many Storylines are there in the Narrative?"
@@ -18,12 +31,12 @@ g = rdflib.Graph()
 g.parse(narrative_example)
 
 query = """
-PREFIX engage: <https://ontology.adversaryengagement.org/ae/engage/>
+PREFIX engagement: <https://ontology.adversaryengagement.org/ae/engagement/>
 
 SELECT (COUNT(DISTINCT ?p) as ?count)
 
 WHERE {
- ?s engage:hasStoryline ?p
+ ?s engagement:hasStoryline ?p
 }
 """
 
@@ -48,10 +61,11 @@ query = """
 PREFIX co: <http://purl.org/co/>
 PREFIX kb: <http://example.org/kb/>
 
-SELECT (COUNT(DISTINCT ?o)  as ?count)
+SELECT (COUNT(DISTINCT ?events)  as ?count)
 
 WHERE {
- kb:storyline1 co:element ?o .
+ kb:storyline1 engagement:hasEvent ?o .
+ ?s co:element ?events
 }
 """
 
@@ -73,11 +87,12 @@ g.parse(narrative_example)
 query = """
 PREFIX uco-action: <https://ontology.unifiedcyberontology.org/uco/action/> 
 PREFIX uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> 
+PREFIX engagement: <https://ontology.adversaryengagement.org/ae/engagement/>
 
 SELECT ?event
 
 WHERE {
- ?alert ?p engage:Alert .
+ ?alert ?p engagement:Alert .
  ?event ?s ?alert .
 }
 """

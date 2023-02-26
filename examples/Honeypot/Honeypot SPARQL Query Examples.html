@@ -14577,10 +14577,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[56]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">narrative_example</span> <span class="o">=</span> <span class="s2">&quot;Narrative/02-02-2023-Updated_HoneypotNarrativeExample.jsonld&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NOTICE</span>
+
+<span class="c1"># This software was produced for the U.S. Government under contract FA8702-23-C-0001,</span>
+
+<span class="c1"># and is subject to the Rights in Data-General Clause 52.227-14, Alt. IV (DEC 2007)</span>
+
+<span class="c1"># ©2023 The MITRE Corporation. Published under the Linux Foundation’s Cyber Domain Ontology project’s Apache 2 license.</span>
+
+<span class="c1"># Released under MITRE PRS 18-4297.</span>
 </pre></div>
 
      </div>
@@ -14593,10 +14601,26 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[370]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">operation_example</span> <span class="o">=</span> <span class="s2">&quot;Operational/02-02-2023-OperationalHoneypot.jsonld&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">narrative_example</span> <span class="o">=</span> <span class="s2">&quot;Narrative/HoneypotNarrativeExample.jsonld&quot;</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">operation_example</span> <span class="o">=</span> <span class="s2">&quot;Operational/OperationalHoneypot.jsonld&quot;</span>
 </pre></div>
 
      </div>
@@ -14632,7 +14656,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[164]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">rdflib</span>
@@ -14640,12 +14664,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="n">g</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">narrative_example</span><span class="p">)</span>
 
 <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">PREFIX engage: &lt;https://ontology.adversaryengagement.org/ae/engage/&gt;</span>
+<span class="s2">PREFIX engagement: &lt;https://ontology.adversaryengagement.org/ae/engagement/&gt;</span>
 
 <span class="s2">SELECT (COUNT(DISTINCT ?p) as ?count)</span>
 
 <span class="s2">WHERE {</span>
-<span class="s2"> ?s engage:hasStoryline ?p</span>
+<span class="s2"> ?s engagement:hasStoryline ?p</span>
 <span class="s2">}</span>
 <span class="s2">&quot;&quot;&quot;</span>
 
@@ -14709,7 +14733,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[163]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">rdflib</span>
@@ -14720,10 +14744,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="s2">PREFIX co: &lt;http://purl.org/co/&gt;</span>
 <span class="s2">PREFIX kb: &lt;http://example.org/kb/&gt;</span>
 
-<span class="s2">SELECT (COUNT(DISTINCT ?o)  as ?count)</span>
+<span class="s2">SELECT (COUNT(DISTINCT ?events)  as ?count)</span>
 
 <span class="s2">WHERE {</span>
-<span class="s2"> kb:storyline1 co:element ?o .</span>
+<span class="s2"> kb:storyline1 engagement:hasEvent ?o .</span>
+<span class="s2"> ?s co:element ?events</span>
 <span class="s2">}</span>
 <span class="s2">&quot;&quot;&quot;</span>
 
@@ -14775,7 +14800,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[207]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">rdflib</span>
@@ -14785,11 +14810,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">PREFIX uco-action: &lt;https://ontology.unifiedcyberontology.org/uco/action/&gt; </span>
 <span class="s2">PREFIX uco-core: &lt;https://ontology.unifiedcyberontology.org/uco/core/&gt; </span>
+<span class="s2">PREFIX engagement: &lt;https://ontology.adversaryengagement.org/ae/engagement/&gt;</span>
 
 <span class="s2">SELECT ?event</span>
 
 <span class="s2">WHERE {</span>
-<span class="s2"> ?alert ?p engage:Alert .</span>
+<span class="s2"> ?alert ?p engagement:Alert .</span>
 <span class="s2"> ?event ?s ?alert .</span>
 <span class="s2">}</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -14844,7 +14870,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[367]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">rdflib</span>

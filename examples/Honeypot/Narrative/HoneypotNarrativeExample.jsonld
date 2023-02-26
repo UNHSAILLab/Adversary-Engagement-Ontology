@@ -1,7 +1,7 @@
 {
   "@context": {
     "co": "http://purl.org/co/",
-    "engage": "https://ontology.adversaryengagement.org/ae/engage/",
+    "engagement": "https://ontology.adversaryengagement.org/ae/engagement/",
     "objective": "https://ontology.adversaryengagement.org/ae/objective/",
     "role": "https://ontology.adversaryengagement.org/ae/role/",
     "kb": "http://example.org/kb/",
@@ -16,11 +16,11 @@
   "@graph": [
     {
       "@id": "kb:narrative1",
-      "@type": "engage:Narrative",
-      "engage:hasStoryline": [
+      "@type": "engagement:Narrative",
+      "engagement:hasStoryline": [
         {
           "@id": "kb:storyline1",
-          "@type": "engage:Storyline",
+          "@type": "engagement:Storyline",
           "uco-core:name": "story1"
         }
       ],
@@ -28,22 +28,22 @@
         {
           "@id": "kb:objective1",
           "@type": "objective:Objective",
-          "uco-core:name": "<What is the objective of the Narrative>"
+          "uco-core:name": "Grand objective is to lure known adversary on network to specific honeypot."
         }
       ],
       "uco-core:description": "The identifiable name of the deception campaign."
     },
     {
       "@id": "kb:Event1",
-      "@type": "engage:PlannedEvent",
-      "engage:eventContext": [
+      "@type": "engagement:PlannedEvent",
+      "engagement:eventContext": [
         {
           "@id": "kb:deploy1",
-          "@type": "engage:Deploy",
+          "@type": "engagement:Deploy",
           "uco-action:object": [
             {
               "@id": "kb:honeytoken1",
-              "@type": "engage:HoneyToken",
+              "@type": "engagement:HoneyToken",
               "uco-core:description": "Honeytoken credentials to a honeypot."
             }
           ],
@@ -72,15 +72,15 @@
     },
     {
       "@id": "kb:Event2",
-      "@type": "engage:PlannedEvent",
-      "engage:eventContext": [
+      "@type": "engagement:PlannedEvent",
+      "engagement:eventContext": [
         {
           "@id": "kb:alert1",
-          "@type": "engage:Alert",
-          "engage:alertContext": [
+          "@type": "engagement:Alert",
+          "engagement:alertContext": [
             {
               "@id": "kb:access1",
-              "@type": "engage:Access",
+              "@type": "engagement:Access",
               "uco-action:object": [
                 {
                   "@id": "kb:honeytoken1"
@@ -113,7 +113,7 @@
           "uco-action:performer": [
             {
               "@id": "kb:DataSource1",
-              "@type": "engage:DataSource",
+              "@type": "engagement:DataSource",
               "uco-core:name": "CanaryTokenAlert"
             }
           ]
@@ -128,12 +128,12 @@
     },
     {
       "@id": "kb:Event3",
-      "@type": "engage:PlannedEvent",
-      "engage:eventContext": [
+      "@type": "engagement:PlannedEvent",
+      "engagement:eventContext": [
         {
           "@id": "kb:alert2",
-          "@type": "engage:Alert",
-          "engage:alertContext": [
+          "@type": "engagement:Alert",
+          "engagement:alertContext": [
             {
               "@id": "kb:ipaddress1",
               "@type": "uco-observable:IPv6Address",
@@ -148,7 +148,7 @@
           "uco-action:performer": [
             {
               "@id": "kb:DataSource2",
-              "@type": "engage:DataSource",
+              "@type": "engagement:DataSource",
               "uco-core:name": "NetworkAlert"
             }
           ]
@@ -163,19 +163,19 @@
     },
     {
       "@id": "kb:Event4",
-      "@type": "engage:PlannedEvent",
-      "engage:eventContext": [
+      "@type": "engagement:PlannedEvent",
+      "engagement:eventContext": [
         {
           "@id": "kb:alert3",
-          "@type": "engage:Alert",
-          "engage:alertContext": [
+          "@type": "engagement:Alert",
+          "engagement:alertContext": [
             {
               "@id": "kb:access2",
-              "@type": "engage:Access",
+              "@type": "engagement:Access",
               "uco-action:object": [
                 {
                   "@id": "kb:honeypot1",
-                  "@type": "engage:Honeypot",
+                  "@type": "engagement:Honeypot",
                   "uco-core:name": "Windows XP"
                 }
               ],
@@ -187,7 +187,7 @@
               "uco-core:instrument": [
                 {
                   "@id": "kb:honeytoken1",
-                  "@type": "engage:honeyToken"
+                  "@type": "engagement:honeyToken"
                 }
               ]
             }
@@ -200,7 +200,7 @@
           "uco-action:performer": [
             {
               "@id": "kb:DataSource3",
-              "@type": "engage:DataSource",
+              "@type": "engagement:DataSource",
               "uco-core:name": "LoginAlert"
             }
           ]
@@ -215,8 +215,8 @@
     },
     {
       "@id": "kb:storyline1",
-      "@type": "engage:Storyline",
-      "engage:hasEvent": [
+      "@type": "engagement:Storyline",
+      "engagement:hasEvent": [
         {
           "@id": "kb:eventthread1",
           "@type": "uco-types:Thread",

@@ -8,14 +8,14 @@
     "uco-core": "https://ontology.unifiedcyberontology.org/uco/core/",
     "uco-types": "https://ontology.unifiedcyberontology.org/uco/types/",
     "uco-identity": "https://ontology.unifiedcyberontology.org/uco/identity/",
-    "engage": "https://ontology.adversaryengagement.org/ae/engage/",
+    "engagement": "https://ontology.adversaryengagement.org/ae/engagement/",
     "objective": "https://ontology.adversaryengagement.org/ae/objective/",
     "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
   "@graph": [
     {
       "@id": "kb:bcdeployment1",
-      "@type": "engage:Deploy",
+      "@type": "engagement:Deploy",
       "uco-core:startTime": "2023-01-01:10:01",
       "uco-core:endTime": "2023-02-03:03:05",
       "uco-action:performer": [
@@ -35,16 +35,16 @@
       "uco-action:object": [
         {
           "@id": "kb:honeypot-low",
-          "@type": "engage:Honeypot",
-          "engage:honeypotInteractionType": "low"
+          "@type": "engagement:Honeypot",
+          "engagement:honeypotInteractionType": "low"
         }
       ]
     },
 
     {
       "@id": "kb:honeypot-high",
-      "@type": "engage:Honeypot",
-      "engage:honeypotInteractionType": "high",
+      "@type": "engagement:Honeypot",
+      "engagement:honeypotInteractionType": "high",
       "uco-core:startTime": "2023-02-03:03:02"
     },
 
@@ -55,7 +55,7 @@
       "uco-core:source": [
         {
           "@id": "kb:honeypot-low",
-          "@type": "engage:Honeypot"
+          "@type": "engagement:Honeypot"
         }
       ],
       "uco-core:target": [
@@ -72,7 +72,7 @@
       "uco-core:source": [
         {
           "@id": "kb:honeypot-high",
-          "@type": "engage:Honeypot"
+          "@type": "engagement:Honeypot"
         }
       ],
       "uco-core:target": [
@@ -84,8 +84,8 @@
 
     {
       "@id": "kb:stage1",
-      "@type": "engage:Stage",
-      "engage:hasCharacteristics":
+      "@type": "engagement:Stage",
+      "engagement:hasCharacterization":
       [
         {
           "@id": "kb:device1",

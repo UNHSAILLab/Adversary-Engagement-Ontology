@@ -8,14 +8,14 @@
     "uco-core": "https://ontology.unifiedcyberontology.org/uco/core/",
     "uco-observable": "https://ontology.unifiedcyberontology.org/uco/observable/",
     "uco-types": "https://ontology.unifiedcyberontology.org/uco/types/",
-    "engage": "https://ontology.adversaryengagement.org/ae/engage/",
+    "engagement": "https://ontology.adversaryengagement.org/ae/engagement/",
     "role": "https://ontology.adversaryengagement.org/ae/role/",
     "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
   "@graph": [
     {
       "@id": "kb:deployinstance1",
-      "@type": "engage:Deploy",
+      "@type": "engagement:Deploy",
       "uco-core:startTime": "12-12-2023-08:30",
       "uco-action:performer": [
         {
@@ -34,7 +34,7 @@
       "uco-action:object": [
         {
           "@id": "kb:honeytoken1",
-          "@type": "engage:HoneyToken",
+          "@type": "engagement:HoneyToken",
           "uco-core:description": "Honeytoken credentials to a honeypot."
         }
       ],
@@ -72,12 +72,12 @@
 
     {
       "@id": "kb:alert1",
-      "@type": "engage:Alert",
+      "@type": "engagement:Alert",
       "uco-core:startTime": "12-15-2023-15:21",
       "uco-action:performer": [
         {
           "@id": "kb:datasource1",
-          "@type": "engage:DataSource",
+          "@type": "engagement:DataSource",
           "uco-core:name": "CanaryTokenAlert"
         }
       ],
@@ -86,10 +86,10 @@
           "@id": "role:Defender"
         }
       ],
-      "engage:alertContext": [
+      "engagement:alertContext": [
         {
           "@id": "kb:accessinstance1",
-          "@type": "engage:Access",
+          "@type": "engagement:Access",
           "uco-action:performer": [
             {
               "@id": "role:Adversary"
@@ -98,7 +98,7 @@
           "uco-action:object": [
             {
               "@id": "kb:honeytoken1",
-              "@type": "engage:honeyToken"
+              "@type": "engagement:honeyToken"
             },
             {
               "@id": "kb:file1",
@@ -119,12 +119,12 @@
 
     {
       "@id": "kb:alert2",
-      "@type": "engage:Alert",
+      "@type": "engagement:Alert",
       "uco-core:startTime": "12-15-2023-15:42",
       "uco-action:performer": [
         {
           "@id": "kb:datasource2",
-          "@type": "engage:DataSource",
+          "@type": "engagement:DataSource",
           "uco-core:name": "NetworkAlert"
         }
       ],
@@ -133,7 +133,7 @@
           "@id": "role:Defender"
         }
       ],
-      "engage:alertContext": [
+      "engagement:alertContext": [
         {
           "@id": "kb:ipaddress2",
           "@type": "uco-observable:IPv6Address",
@@ -150,7 +150,7 @@
 
     {
       "@id": "kb:accessinstance2",
-      "@type": "engage:Access",
+      "@type": "engagement:Access",
       "uco-action:performer": [
         {
           "@id": "role:Adversary"
@@ -159,14 +159,14 @@
       "uco-action:object": [
         {
           "@id": "kb:honeypot1",
-          "@type": "engage:Honeypot",
+          "@type": "engagement:Honeypot",
           "uco-core:name": "Windows XP"
         }
       ],
       "uco-action:instrument": [
         {
           "@id": "kb:honeytoken1",
-          "@type": "engage:honeyToken"
+          "@type": "engagement:honeyToken"
         }
       ]
     }
