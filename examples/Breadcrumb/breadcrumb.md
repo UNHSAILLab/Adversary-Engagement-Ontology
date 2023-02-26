@@ -9,7 +9,7 @@
 ```
 
 ## Breadcrumb
-This simple example outlines how to describe a simple and bare example of how to the breadcrumb ae object and attach objectives to `lureObject(s)`.
+This simple example outlines how to describe a simple and bare example of how to use the breadcrumb ae object and attach objectives to `lureObject(s)`.
 
 In this example, you will see how to use:
 - `engagement:Breadcrumb`
