@@ -121,13 +121,22 @@ There are three examples inside the `\examples\` folder.
 
 ## Properties Tree ##
 ```
-  ├── engage:alertContext
-  ├── engage:eventContext
-  ├── engage:hasCharacterization
-  ├── engage:hasEvent
-  ├── engage:hasStoryline
-  ├── engage:honeypotInteractionType
-  ├── objective:hasObjective
+├── engage:alertContext
+├── engage:eventContext
+├── engage:hasCharacterization
+├── engage:hasEvent
+├── engage:hasStoryline
+├── engage:honeypotInteractionType
+├── engagement:alertContext
+├── engagement:eventAttribute
+├── engagement:eventContext
+├── engagement:eventType
+├── engagement:hasBreadcrumb
+├── engagement:hasCharacterization
+├── engagement:hasEvent
+├── engagement:hasStoryline
+├── engagement:honeypotInteractionType
+├── objective:hasObjective
 ```
 
 ## Current Release ##
