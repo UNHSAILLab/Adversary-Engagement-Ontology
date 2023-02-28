@@ -89,44 +89,44 @@ There are three examples inside the `\examples\` folder.
 
 ## Individuals ##
 ```
-Objectives
-├── objective:Affect
-├── objective:Collect
-├── objective:CommandAndControl
-├── objective:CredentialAccess
-├── objective:Deny
-├── objective:Detect
-├── objective:DevelopResource
-├── objective:Direct
-├── objective:Discover
-├── objective:Disrupt
-├── objective:Elicit
-├── objective:Evade
-├── objective:Execute
-├── objective:Exfilitrate
-├── objective:Expose
-├── objective:Impact
-├── objective:GainInitialAccess
-├── objective:MoveLaterally
-├── objective:Motivate
-├── objective:Persist
-├── objective:Prevent
-├── objective:PrivilegeEscalate
-├── objective:Reassure
-├── objective:Reconnaissance
-├── objective:TimeSink
-├── objective:Track
-├── objective:Trap
-├── objective:Plan
-├── objective:Prepare
-├── objective:Lure
-├── objective:Analyze
-Roles
-├── role:RedTeam
-├── role:BlueTeam
-├── role:PurpleTeam
-├── role:Adversary
-├── role:Defender
+├── engagement:Objectives
+│    ├── objective:Affect
+│    ├── objective:Collect
+│    ├── objective:CommandAndControl
+│    ├── objective:CredentialAccess
+│    ├── objective:Deny
+│    ├── objective:Detect
+│    ├── objective:DevelopResource
+│    ├── objective:Direct
+│    ├── objective:Discover
+│    ├── objective:Disrupt
+│    ├── objective:Elicit
+│    ├── objective:Evade
+│    ├── objective:Execute
+│    ├── objective:Exfilitrate
+│    ├── objective:Expose
+│    ├── objective:Impact
+│    ├── objective:GainInitialAccess
+│    ├── objective:MoveLaterally
+│    ├── objective:Motivate
+│    ├── objective:Persist
+│    ├── objective:Prevent
+│    ├── objective:PrivilegeEscalate
+│    ├── objective:Reassure
+│    ├── objective:Reconnaissance
+│    ├── objective:TimeSink
+│    ├── objective:Track
+│    ├── objective:Trap
+│    ├── objective:Plan
+│    ├── objective:Prepare
+│    ├── objective:Lure
+│    ├── objective:Analyze
+├── engagement:Roles
+│    ├── role:RedTeam
+│    ├── role:BlueTeam
+│    ├── role:PurpleTeam
+│    ├── role:Adversary
+│    ├── role:Defender
 
 ```
 
