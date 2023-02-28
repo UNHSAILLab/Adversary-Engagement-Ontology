@@ -37,8 +37,6 @@ The Adversary Engagement (AE) ontology is defined as a specific domain ontology 
 
 # Overview #
 
-There are 67 Classes and 7 properties in the AEO. The Classes Tree and Properties Tree are listed below. 
-
 ## Examples ##
 There are three examples inside the `\examples\` folder.
 - [Breadcrumb](https://github.com/UNHSAILLab/Adversary-Engagement-Ontology/tree/main/examples/Breadcrumb)
@@ -55,7 +53,7 @@ There are three examples inside the `\examples\` folder.
   │    ├── engagement:Alert
   │    ├── engagement:Deploy
   │    ├── engagement:Respond
-  │        ├── engagement:Obfuscate
+  │    ├── engagement:Obfuscate
   ├── uco-action:ActionLifecycle
   │    ├── attack:cyberKillChain
   ├── uco-action:ActionPattern
@@ -66,7 +64,6 @@ There are three examples inside the `\examples\` folder.
   │    ├── engagement:LureObject
   │    │     ├── engagement:Breadcrumb
   │    │     ├── engagement:Decoy
-  │    │         ├── engagement:Honeypot
   │    │     ├── engagement:HoneyObject
   │    │         ├── engagement:HoneyToken
   │    │         ├── engagement:Honeypot
@@ -80,50 +77,56 @@ There are three examples inside the `\examples\` folder.
   │    ├── engagement:StageAttackSurface
   │    ├── engagement:Storyline
   │    ├── objective:Objective
-  │    |     ├── objective:Affect
-  │    │     ├── objective:Collect
-  │    │     ├── objective:CommandAndControl
-  │    │     ├── objective:CredentialAccess
-  │    │     ├── objective:Deny
-  │    │     ├── objective:Detect
-  │    │     ├── objective:DevelopResource
-  │    │     ├── objective:Direct
-  │    │     ├── objective:Discover
-  │    │     ├── objective:Disrupt
-  │    │     ├── objective:Elicit
-  │    │     ├── objective:Evade
-  │    │     ├── objective:Execute
-  │    │     ├── objective:Exfilitrate
-  │    │     ├── objective:Expose
-  │    │     ├── objective:Impact
-  │    │     ├── objective:GainInitialAccess
-  │    │     ├── objective:MoveLaterally
-  │    │     ├── objective:Motivate
-  │    │     ├── objective:Persist
-  │    │     ├── objective:Prevent
-  │    │     ├── objective:PrivilegeEscalate
-  │    │     ├── objective:Reassure
-  │    │     ├── objective:Reconnaissance
-  │    │     ├── objective:TimeSink
-  │    │     ├── objective:Track
-  │    │     ├── objective:Trap
-  │    │     ├── objective:Plan
-  │    │     ├── objective:Prepare
-  │    │     ├── objective:Lure
-  │    │     ├── objective:Analyze
   ├── uco-identity:Identity
   │    ├── identiy:Persona
   │    ├── uco-identity:Organization
   │    │     ├── identity:Team
-  ├── uco-role:Role
-  │    ├── role:RedTeam
-  │    ├── role:BlueTeam
-  │    ├── role:PurpleTeam
-  │    ├── role:Adversary
-  │    ├── role:Defender
   ├── uco-types:Thread
   │    ├── engagement:hasBreadcrumb
-  │    ├── engagement:hasStoryline
+  │    ├── engagement:hasEvent
+```
+
+```
+## Individuals ##
+Objectives
+├── objective:Affect
+├── objective:Collect
+├── objective:CommandAndControl
+├── objective:CredentialAccess
+├── objective:Deny
+├── objective:Detect
+├── objective:DevelopResource
+├── objective:Direct
+├── objective:Discover
+├── objective:Disrupt
+├── objective:Elicit
+├── objective:Evade
+├── objective:Execute
+├── objective:Exfilitrate
+├── objective:Expose
+├── objective:Impact
+├── objective:GainInitialAccess
+├── objective:MoveLaterally
+├── objective:Motivate
+├── objective:Persist
+├── objective:Prevent
+├── objective:PrivilegeEscalate
+├── objective:Reassure
+├── objective:Reconnaissance
+├── objective:TimeSink
+├── objective:Track
+├── objective:Trap
+├── objective:Plan
+├── objective:Prepare
+├── objective:Lure
+├── objective:Analyze
+Roles
+├── role:RedTeam
+├── role:BlueTeam
+├── role:PurpleTeam
+├── role:Adversary
+├── role:Defender
+
 ```
 
 ## Properties Tree ##
