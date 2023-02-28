@@ -52,7 +52,7 @@ There are three examples inside the `\examples\` folder.
   │    ├── objective:Trap
   ├── uco-action:Action
   │    ├── engagement:Access
-  │    ├── vengagement:Alert
+  │    ├── engagement:Alert
   │    ├── engagement:Deploy
   │    ├── engagement:Respond
   │        ├── engagement:Obfuscate
