@@ -47,8 +47,6 @@ There are three examples inside the `\examples\` folder.
 
 ## Classes Tree ##
  ```
-## Classes Tree ##
- ```
   ├── engagement:Event
   ├── objective:Denial
   │    ├── objective:Trap
