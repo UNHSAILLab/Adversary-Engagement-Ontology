@@ -89,7 +89,7 @@ There are three examples inside the `\examples\` folder.
 
 ## Individuals ##
 ```
-├── engagement:Objectives
+├── engagement:Objective
 │    ├── objective:Affect
 │    ├── objective:Collect
 │    ├── objective:CommandAndControl
@@ -121,7 +121,7 @@ There are three examples inside the `\examples\` folder.
 │    ├── objective:Prepare
 │    ├── objective:Lure
 │    ├── objective:Analyze
-├── engagement:Roles
+├── engagement:Role
 │    ├── role:RedTeam
 │    ├── role:BlueTeam
 │    ├── role:PurpleTeam
