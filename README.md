@@ -47,38 +47,40 @@ There are three examples inside the `\examples\` folder.
 
 ## Classes Tree ##
  ```
-  ├── engage:Event
+## Classes Tree ##
+ ```
+  ├── engagement:Event
   ├── objective:Denial
   │    ├── objective:Trap
   ├── uco-action:Action
-  │    ├── engage:Access
-  │    ├── vengage:Alert
-  │    ├── engage:Deploy
-  │    ├── engage:Respond
-  │        ├── engage:Obfuscate
+  │    ├── engagement:Access
+  │    ├── vengagement:Alert
+  │    ├── engagement:Deploy
+  │    ├── engagement:Respond
+  │        ├── engagement:Obfuscate
   ├── uco-action:ActionLifecycle
   │    ├── attack:cyberKillChain
   ├── uco-action:ActionPattern
   │    ├── attack:AttackPattern
   │    ├── attack:DefensePattern
   ├── uco-core:UcoObject
-  │    ├── engage:DataSource
-  │    ├── engage:LureObject
-  │    │     ├── engage:Breadcrumb
-  │    │     ├── engage:Decoy
-  │    │         ├── engage:Honeypot
-  │    │     ├── engage:HoneyObject
-  │    │         ├── engage:HoneyToken
-  │    │         ├── engage:Honeypot
-  │    ├── engage:Malware
-  │    ├── engage:Narrative
-  │    ├── engage:PlannedEvent
-  │    ├── engage:PocketLitter
-  │    ├── engage:Resource
-  │    ├── engage:Sandbox
-  │    ├── engage:Stage
-  │    ├── engage:StageAttackSurface
-  │    ├── engage:Storyline
+  │    ├── engagement:DataSource
+  │    ├── engagement:LureObject
+  │    │     ├── engagement:Breadcrumb
+  │    │     ├── engagement:Decoy
+  │    │         ├── engagement:Honeypot
+  │    │     ├── engagement:HoneyObject
+  │    │         ├── engagement:HoneyToken
+  │    │         ├── engagement:Honeypot
+  │    ├── engagement:Malware
+  │    ├── engagement:Narrative
+  │    ├── engagement:PlannedEvent
+  │    ├── engagement:PocketLitter
+  │    ├── engagement:Resource
+  │    ├── engagement:Sandbox
+  │    ├── engagement:Stage
+  │    ├── engagement:StageAttackSurface
+  │    ├── engagement:Storyline
   │    ├── objective:Objective
   │    |     ├── objective:Affect
   │    │     ├── objective:Collect
@@ -91,15 +93,13 @@ There are three examples inside the `\examples\` folder.
   │    │     ├── objective:Discover
   │    │     ├── objective:Disrupt
   │    │     ├── objective:Elicit
-  │    │     ├── objective:ElicitBehavior
-  │    │     │       ├── objective:Lure
   │    │     ├── objective:Evade
   │    │     ├── objective:Execute
   │    │     ├── objective:Exfilitrate
   │    │     ├── objective:Expose
   │    │     ├── objective:Impact
-  │    │     ├── objective:InitialAccess
-  │    │     ├── objective:LateralMove
+  │    │     ├── objective:GainInitialAccess
+  │    │     ├── objective:MoveLaterally
   │    │     ├── objective:Motivate
   │    │     ├── objective:Persist
   │    │     ├── objective:Prevent
@@ -109,33 +109,36 @@ There are three examples inside the `\examples\` folder.
   │    │     ├── objective:TimeSink
   │    │     ├── objective:Track
   │    │     ├── objective:Trap
+  │    │     ├── objective:Plan
+  │    │     ├── objective:Prepare
+  │    │     ├── objective:Lure
+  │    │     ├── objective:Analyze
   ├── uco-identity:Identity
   │    ├── identiy:Persona
-  ├── uco-identity:Organization
-  │    ├── identity:Team
-  ├── uco-types: Thread
-  │    ├── engage:BreadcrumTrail
-  │    ├── engage:Storyline
-  ├── vocabulary:HoneypotInteractionTypeVocab
+  │    ├── uco-identity:Organization
+  │    │     ├── identity:Team
+  ├── uco-role:Role
+  │    ├── role:RedTeam
+  │    ├── role:BlueTeam
+  │    ├── role:PurpleTeam
+  │    ├── role:Adversary
+  │    ├── role:Defender
+  ├── uco-types:Thread
+  │    ├── engagement:hasBreadcrumb
+  │    ├── engagement:hasStoryline
 ```
 
 ## Properties Tree ##
 ```
-├── engage:alertContext
-├── engage:eventContext
-├── engage:hasCharacterization
-├── engage:hasEvent
-├── engage:hasStoryline
-├── engage:honeypotInteractionType
 ├── engagement:alertContext
-├── engagement:eventAttribute
 ├── engagement:eventContext
-├── engagement:eventType
-├── engagement:hasBreadcrumb
 ├── engagement:hasCharacterization
 ├── engagement:hasEvent
 ├── engagement:hasStoryline
 ├── engagement:honeypotInteractionType
+├── engagement:eventAttribute
+├── engagement:eventType
+├── engagement:hasBreadcrumb
 ├── objective:hasObjective
 ```
 
@@ -151,7 +154,3 @@ Before you post a Github issue or send an email ensure you've done this checklis
 1. [Determined scope](https://aeontology.sail-lab.org/start.php#scope) of your task. It is not necessary for most parties to understand all aspects of the ontology, mapping methods, and supporting tools.
 
 2. Search the [Issues tab](https://github.com/UNHSAILLab/Adversary-Engagement-Ontology/issues) for duplicative issues.  Please know, however, that the AEO community primarily tracks issues in a Jira instance available to community members.  The Github Issue tracker can still be a way AEO issues are reported by users who have not registered with the community, but work on the issues will be scheduled and tracked in Jira.
-
-## NOTICE
-This software was produced for the U. S. Government under Contract No. FA8702-19-C-0001, and is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software Documentation Clause DFARS 252.227-7014 (FEB 2014)
-© 2023 The MITRE Corporation
