@@ -15,6 +15,7 @@
 @prefix uco-types: <https://ontology.unifiedcyberontology.org/uco/types/> .
 
 
+# Actions
 
 engagement:Access a owl:Class, 
         sh:NodeShape ; 
@@ -96,6 +97,9 @@ engagement:Respond a owl:Class,
 	] ;
     sh:targetClass engagement:Respond .
  
+
+# Objects
+
 
 engagement:Breadcrumb a owl:Class,
         sh:NodeShape ;
@@ -221,6 +225,7 @@ engagement:Malware a owl:Class,
     sh:targetClass engagement:Malware .
 
  
+# Planning
 
 engagement:Narrative a owl:Class, 
         sh:NodeShape ; 
@@ -337,6 +342,9 @@ engagement:Storyline a owl:Class,
       ] ;
     sh:targetClass engagement:Storyline .
  
+
+
+# Properties
 
 engagement:alertContext a owl:ObjectProperty;
     rdfs:label "alertContext"@en ; 
