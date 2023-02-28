@@ -7,7 +7,28 @@
 @prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> . 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
 
+# Classes
+
+objective:Objective a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "Objective"@en ;
+    rdfs:comment "An objective is some particular condition or state that is desired to be achieved and toward which effort is directed: an aim, goal, or end of action."@en ;
+    rdfs:subClassOf uco-core:UcoObject ;
+    sh:targetClass objective:Objective .
  
+
+# Properties
+
+objective:hasObjective a owl:ObjectProperty,
+        sh:NodeShape ;
+    uco-core:name "hasObjective"@en ;
+    uco-core:description "An object which can be associated with an objective."@en ;
+    rdfs:range objective:Objective .
+
+# Individuals
+
+    # ATT&CK Objectives
+
 
 objective:CommandAndControl a objective:Objective ;
     uco-core:name "Command and Control"@en ;
@@ -89,6 +110,8 @@ objective:Reconnaissance a objective:Objective ;
     uco-core:description "A Reconnaissance objective is defined by MITRE ATT&CK Tactic TA0043 (Reconnaissance) and involves an adversary's capability to gather information they can use to plan future operations."@en ;
 	.
  
+
+   # ENGAGE Objectives
 
 objective:Affect a objective:Objective ;
     uco-core:name "Affect"@en ;
@@ -243,6 +266,9 @@ objective:Analyze a objective:Objective ;
 	.
  
 
+
+# Adversary Engagement Ontology Native Objectives
+
 objective:Deny a objective:Objective ;
     uco-core:name "Deny"@en ;
     uco-core:description "A Deny (Denial) objective is to limit an adversary's capabilities or accessibility to a resource."@en ;
@@ -255,11 +281,6 @@ objective:ElicitBehavior a objective:Objective ;
 	.
  
 
-objective:hasObjective a owl:ObjectProperty,
-        sh:NodeShape ;
-    uco-core:name "hasObjective"@en ;
-    uco-core:description "An object which can be associated with an objective."@en ;
-    rdfs:range objective:Objective .
  
 
 objective:Lure a objective:Objective ;
@@ -268,13 +289,7 @@ objective:Lure a objective:Objective ;
 	.
 
 
-objective:Objective a owl:Class,
-        sh:NodeShape ;
-    rdfs:label "Objective"@en ;
-    rdfs:comment "An objective is some particular condition or state that is desired to be achieved and toward which effort is directed: an aim, goal, or end of action."@en ;
-    rdfs:subClassOf uco-core:UcoObject ;
-    sh:targetClass objective:Objective .
- 
+
 
 objective:TimeSink a objective:Objective ;
     uco-core:name "Time Sink"@en ;
