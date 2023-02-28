@@ -86,8 +86,9 @@ There are three examples inside the `\examples\` folder.
   │    ├── engagement:hasEvent
 ```
 
-```
+
 ## Individuals ##
+```
 Objectives
 ├── objective:Affect
 ├── objective:Collect
