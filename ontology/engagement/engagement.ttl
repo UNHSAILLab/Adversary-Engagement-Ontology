@@ -19,7 +19,7 @@
 engagement:Access a owl:Class, 
         sh:NodeShape ; 
     rdfs:label "Access"@en ; 
-    rdfs:comment " Access as an action refers to an observed or deduced interaction between an entity and an object."@en ; 
+    rdfs:comment "An Access action refers to an observed or deduced interaction between an entity and an object."@en ; 
     rdfs:subClassOf uco-action:Action ; 
 	sh:property [
 		sh:datatype xsd:string ;
@@ -35,7 +35,7 @@ engagement:Access a owl:Class,
 engagement:Alert a owl:Class, 
         sh:NodeShape ; 
     rdfs:label "Alert"@en ; 
-    rdfs:comment " An alert action relates a monitoring tool or data source that follows a detect action to an entity."@en ; 
+    rdfs:comment "An Alert action involves notification to some entity that some condition or event of particular interest has occurred."@en ; 
     rdfs:subClassOf uco-action:Action ; 
 	sh:property [
 		sh:datatype xsd:string ;
@@ -51,7 +51,7 @@ engagement:Alert a owl:Class,
 engagement:Deploy a owl:Class,
         sh:NodeShape ;
     rdfs:label "Deploy"@en ;
-    rdfs:comment "Deploy is an action which some entity takes to instantiate some deception objects prior or during an operation."@en ;
+    rdfs:comment "A Deploy action involves instantiating some deception objects prior or during an operation."@en ;
     rdfs:subClassOf uco-action:Action ; 
 	sh:property [
 		sh:datatype xsd:string ;
@@ -67,8 +67,8 @@ engagement:Deploy a owl:Class,
 engagement:Obfuscate a owl:Class,
         sh:NodeShape ;
     rdfs:label "Obfuscate"@en ;
-    rdfs:comment "Obfuscate is a transformative action an entity or tool performs to some object to reduce available information associated with that object."@en ;
-    rdfs:subClassOf engagement:Respond ;
+    rdfs:comment "An Obfuscate action is a transformative action an entity or tool performs to some object to reduce available information associated with that object."@en ;
+    rdfs:subClassOf uco-action:Action ; 
 	sh:property [
 		sh:datatype xsd:string ;
 		sh:hasValue "Obfuscate" ;
@@ -84,7 +84,7 @@ engagement:Obfuscate a owl:Class,
 engagement:Respond a owl:Class,
         sh:NodeShape ;
     rdfs:label "Respond"@en ;
-    rdfs:comment "Respond is a reactive, defensive action to some adversarial detection or alert."@en ;
+    rdfs:comment "A Respond action is a reactive, defensive action to some adversarial detection or alert."@en ;
     rdfs:subClassOf uco-action:Action ;
 	sh:property [
 		sh:datatype xsd:string ;
@@ -100,7 +100,7 @@ engagement:Respond a owl:Class,
 engagement:Breadcrumb a owl:Class,
         sh:NodeShape ;
   rdfs:label "Breadcrumb"@en ;
-  rdfs:comment " A Breadcrumb is a set of objects placed to be at least partially, sequentially interacted by an adversary to ellicit an explicit response, often in the context of lateral movement."@en ;
+  rdfs:comment "A Breadcrumb is a set of objects placed to be at least partially, sequentially interacted by an adversary to ellicit an explicit response, often in the context of lateral movement."@en ;
   rdfs:subClassOf engagement:LureObject ;
   sh:property
     [
@@ -137,7 +137,7 @@ engagement:BreadcrumbTrail a owl:Class,
 engagement:DataSource a owl:Class, 
         sh:NodeShape ; 
     rdfs:label "DataSource"@en ; 
-    rdfs:comment "A data source is some source that generates event logs which can be analyzed for adversary detection."@en ; 
+    rdfs:comment "A datasource is a grouping of characteristics unique to a specific source of data (e.g. a tool that generates event logs)."@en ; 
     rdfs:subClassOf uco-core:UcoObject ; 
     sh:targetClass engagement:DataSource . 
  
@@ -164,8 +164,7 @@ engagement:Honeypot a owl:Class,
         sh:NodeShape ;
   rdfs:label "Honeypot"@en ;
   rdfs:comment " A controlled environment intended to be probed, compromised or attacked by adversaries or malware."@en ;
-  rdfs:subClassOf engagement:Decoy ,
-	engagement:HoneyObject ;
+  rdfs:subClassOf engagement:HoneyObject ;
 	sh:property
     [
       sh:datatype vocabulary:HoneypotInteractionTypeVocab ;
@@ -229,13 +228,13 @@ engagement:Narrative a owl:Class,
     rdfs:comment "A narrative is a script of all expected sequence of actions, events, entities and their interactions."@en ; 
     rdfs:subClassOf uco-core:UcoObject ; 
     sh:property [ sh:class uco-core:UcoObject ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:path engagement:hasStoryline ] ,
-		[ sh:class uco-core:UcoObject ;
-					sh:minCount 1 ;
-					sh:nodeKind sh:IRI ;
-					sh:path engagement:hasObjective ] ;
+		sh:minCount 1 ;
+		sh:nodeKind sh:IRI ;
+		sh:path engagement:hasStoryline ] ,
+	[ sh:class uco-core:UcoObject ;
+		sh:minCount 1 ;
+		sh:nodeKind sh:IRI ;
+		sh:path engagement:hasObjective ] ;
     sh:targetClass engagement:Narrative . 
 
  
@@ -243,7 +242,7 @@ engagement:Narrative a owl:Class,
 engagement:PlannedEvent a owl:Class, 
         sh:NodeShape ; 
     rdfs:label "PlannedEvent"@en ; 
-    rdfs:comment "An PlannedEvent is a collection of actions, entities, interactions designated to be performed at some sequentially indexed time in a narrative"@en ; 
+    rdfs:comment "A PlannedEvent is a collection of actions, entities, interactions designated to be performed at some sequentially indexed time in a Storyline or Narrative"@en ; 
     rdfs:subClassOf uco-core:UcoObject ; 
     sh:property [ sh:class uco-core:UcoObject ;
             sh:minCount 1 ;
@@ -314,7 +313,7 @@ engagement:Stage a owl:Class,
 engagement:StageAttackSurface a owl:Class,
         sh:NodeShape ;
     rdfs:label "StageAttackSurface"@en ;
-    rdfs:comment "An intentionally configured attack surface described by UcoObjects."@en ;
+    rdfs:comment "An intentionally configured attack surface for a Stage."@en ;
     rdfs:subClassOf uco-core:UcoObject ;
     sh:property [ sh:class uco-core:UcoObject ;
             sh:minCount 1 ;
@@ -339,15 +338,13 @@ engagement:Storyline a owl:Class,
     sh:targetClass engagement:Storyline .
  
 
-engagement:alertContext a owl:ObjectProperty, 
-        sh:NodeShape ; 
+engagement:alertContext a owl:ObjectProperty;
     rdfs:label "alertContext"@en ; 
     rdfs:comment "An alert context describes the association of actions and objects relating to an alert."@en ; 
     rdfs:range uco-core:UcoObject .
  
 
-engagement:eventContext a owl:ObjectProperty, 
-        sh:NodeShape ; 
+engagement:eventContext a owl:ObjectProperty; 
     rdfs:label "eventContext"@en ; 
     rdfs:comment "An event context describes the association of actions and objects relating to an event."@en ; 
     rdfs:range uco-core:UcoObject .
