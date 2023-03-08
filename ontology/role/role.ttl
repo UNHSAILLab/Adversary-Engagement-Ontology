@@ -1,7 +1,7 @@
 
 @prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> . 
 @prefix uco-role: <https://ontology.unifiedcyberontology.org/uco/role/> . 
-
+@prefix role: <https://ontology.adversaryengagement.org/ae/role/> . 
  
 	
 role:Adversary a uco-role:Role ;
