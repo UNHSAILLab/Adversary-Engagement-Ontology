@@ -24,7 +24,6 @@ top_srcdir := ..
   check-role \
   check-vocabulary \
   clean-master \
-  clean-engage \
   clean-identity \
   clean-objective \
   clean-role \
