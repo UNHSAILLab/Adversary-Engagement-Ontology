@@ -156,3 +156,9 @@ Before you post a Github issue or send an email ensure you've done this checklis
 1. [Determined scope](https://aeontology.sail-lab.org/start.php#scope) of your task. It is not necessary for most parties to understand all aspects of the ontology, mapping methods, and supporting tools.
 
 2. Search the [Issues tab](https://github.com/UNHSAILLab/Adversary-Engagement-Ontology/issues) for duplicative issues.  Please know, however, that the AEO community primarily tracks issues in a Jira instance available to community members.  The Github Issue tracker can still be a way AEO issues are reported by users who have not registered with the community, but work on the issues will be scheduled and tracked in Jira.
+
+## NOTICE
+This software was produced for the U.S. Government under contract FA8702-22-C-0001,
+and is subject to the Rights in Data-General Clause 52.227-14, Alt. IV (DEC 2007)
+C2023 The MITRE Corporation. All Rights Reserved.
+Released under MITRE PRS 18-4297, and under the Cyber Domain Ontology project's Apache 2 license.
