@@ -4,7 +4,7 @@
 
 The AE ontology aims to standardize and simplify the documentation and transmission of the deployment configuration of cyber adversary engagement tools and techniques. This helps to ensure a consistent and efficient approach to adversary engagement across organizations and domains. The standardization provided by the AE ontology enables better collaboration and sharing of information among stakeholders, leading to more effective utilization of adversary engagement operations.
 
-AEO Website: https://aeontology.sail-lab.org/
+AEO Website: http://www.adversaryengagementontology.org/
 
 ## Use cases ##
 The Adversary Engagement Ontology (AEO) serves several purposes:
