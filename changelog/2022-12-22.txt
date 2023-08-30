@@ -1,0 +1,12 @@
+[REPLACED] Relationship "hasEventScript with ObjectProperty engage:hasEventScript
+[UPDATED] AdvEng diagram to reflect the removal and restructure of classes
+[REMOVED] Facets, not currently necessary
+[REMOVED] Time, uco-action's startTime and endTime can replace most of the functionality
+[SUGGESTION] durationTime for uco-action
+[TO-BE-DISCUSSED] Intended use of uco-action:result. E.g. Alert is the action of which we are informed of an event, but
+logically alert is not casual of the event.
+[REMOVED] Adversary, Defender roles since they are instances instead of classes.
+[TO-BE-DISCUSSED] Distinction and/or inclusion/exclusion of general actions for AE operations
+[TO-BE-DISCUSSED] Post analysis may be covered by CASE, however it usually describes the forensic investigation process
+rather than the deduction made from the analysis. Who takes the domain?
+

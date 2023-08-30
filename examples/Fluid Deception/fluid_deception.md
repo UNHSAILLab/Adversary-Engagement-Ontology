@@ -9,14 +9,16 @@
 # Released under MITRE PRS 18-4297.
 ```
 
+## NOTE: `engagement:Stage` has been depreciated in AEO version 0.2.0. Instead `engagement:Honeypot` now has the available property `engagement:hasPerceptionCharacterization` that connects `engagement:Honeypot` to `uco-observable:Device`.
+
 ## Fluid Deception
 
 
-This simple example outlines how to describe a simple and bare example of how the concept of the `engagement:Stage` to maintain and persist an intended perception for an audience (e.g. an adversary). The example is designed for operational purposes in support of deception technologies rather than manual narration such as done with the `Narrative`/preplanning of a deception operation.
+This simple example outlines how to describe a simple and bare example of how the concept of the `engage:Stage` to maintain and persist an intended perception for an audience (e.g. an adversary). The example is designed for operational purposes in support of deception technologies rather than manual narration such as done with the `Narrative`/preplanning of a deception operation.
 
 In this example, you will see how to use:
 - `engagement:Honeypot` and its property `HoneypotInteractionType` ("high", "low", "dynamic")
-- `engagement:Stage` for mutual perception
+- `engagement:Stage` (depreciated in AEO_version_0.2.0)
 
 
 

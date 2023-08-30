@@ -1,0 +1,29 @@
+CHANGES TO ONTOLOGY
+--
+[REMOVED] Attack class
+[ADDED] DefensePattern
+[NO CHANGE] AnalysisPattern has no current unified framework
+[CORRECTED] Team class has been moved to Identity namespace
+[ADDED] RedTeam, BlueTeam, PurpleTeam in Role namespace as instances
+[ADDED] Defender, Adversart in Role namespace as instances
+[REMOVED] tacticIdentifier, techniqueIdentifier, approachIdentifier, goalIdentifier
+[REMOVED] teamIdentifier
+[NO CHANGE] Objective is not a subclass of Action class until further discussion
+[RENAMED] Objectives other than Reconnaissance have been renamed
+[CORRECTED] hasObjective's targetclass assertion has been removed
+[RENAMED] Event has been renamed to PlannedEvent
+[ADDED] hasEvent has been added.
+[ADDED] hasCharacterization has been added.
+[ADDED] StageAttackSurface has been re-added.
+[MODIFIED] StageAttackSurface, PocketLitter, Stage, and LureObject have "hasCharacterization" property
+[RENAMED] hasEventScript has been renamed to eventContext
+[MODIFIED] Removed redundant sub-class on objective:Obfuscate
+[CORRECTED] Occurences of "sh:nodeKind sh:BlankNodeOrIRI" have been replaced by "sh:nodeKind sh:IRI"
+[CORRECTED] Honeypot has its HoneypotInteractionTypeVocab enumerated within the class
+[ADDED] MITRE ENGAGE and MITRE ATTACK Objective (Tactics, Approach) support
+
+
+CHANGES TO REPO
+--
+[RERENDERED] New Docs according to the ontology changes
+[UPDATED] AE Diagram

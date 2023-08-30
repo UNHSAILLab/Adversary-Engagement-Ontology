@@ -1,4 +1,3 @@
-
 @prefix attack: <https://ontology.adversaryengagement.org/ae/attack/> .
 @prefix identity: <https://ontology.adversaryengagement.org/ae/identity/> .
 @prefix objective: <https://ontology.adversaryengagement.org/ae/objective/> .
