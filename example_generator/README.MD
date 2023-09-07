@@ -4,3 +4,5 @@ Notes:
 - 1. The generator currently uses strictly prewritten rules of AEO, discussion on an automation process for rule generation
 is still early.
 - 2. The generator currently is bounded by prompt size limits. There are some known work arounds but none are functionally implemented yet.
+
+You can try the AEO example generator in the HuggingFace space: https://huggingface.co/spaces/saillab/AEOExampleGenerator  
