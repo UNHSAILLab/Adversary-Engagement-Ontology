@@ -46,14 +46,13 @@ There are three examples inside the `\examples\` folder.
 ## Classes Tree ##
  ```
   ├── engagement:Event
-  ├── objective:Denial
-  │    ├── objective:Trap
   ├── uco-action:Action
   │    ├── engagement:Access
   │    ├── engagement:Alert
   │    ├── engagement:Deploy
   │    ├── engagement:Respond
   │    ├── engagement:Obfuscate
+  │    ├── engagement:Beacon
   ├── uco-action:ActionLifecycle
   │    ├── attack:cyberKillChain
   ├── uco-action:ActionPattern
@@ -61,29 +60,26 @@ There are three examples inside the `\examples\` folder.
   │    ├── attack:DefensePattern
   ├── uco-core:UcoObject
   │    ├── engagement:DataSource
+  │    ├── engagement:DataTarget
   │    ├── engagement:LureObject
   │    │     ├── engagement:Breadcrumb
   │    │     ├── engagement:Decoy
   │    │     ├── engagement:HoneyObject
   │    │         ├── engagement:HoneyToken
   │    │         ├── engagement:Honeypot
+  │    ├── engagement:BreadcrumbTrail
   │    ├── engagement:Malware
   │    ├── engagement:Narrative
   │    ├── engagement:PlannedEvent
   │    ├── engagement:PocketLitter
   │    ├── engagement:Resource
   │    ├── engagement:Sandbox
-  │    ├── engagement:Stage
-  │    ├── engagement:StageAttackSurface
   │    ├── engagement:Storyline
   │    ├── objective:Objective
   ├── uco-identity:Identity
   │    ├── identiy:Persona
   │    ├── uco-identity:Organization
   │    │     ├── identity:Team
-  ├── uco-types:Thread
-  │    ├── engagement:hasBreadcrumb
-  │    ├── engagement:hasEvent
 ```
 
 
@@ -142,6 +138,10 @@ There are three examples inside the `\examples\` folder.
 ├── engagement:eventType
 ├── engagement:hasBreadcrumb
 ├── objective:hasObjective
+├── objective:hasAttackSurface
+├── engagement:breadcrumbTargetObject
+├── engagement:hasCharacterization
+├── engagement:hasPerceptionCharacterization
 ```
 
 ## Current Release ##
