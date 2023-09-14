@@ -145,9 +145,9 @@ There are three examples inside the `\examples\` folder.
 ```
 
 ## Current Release ##
-The current release of AEO is version 0.1.8 
+The current release of AEO is version 0.2.0 
 
-The latest release of the Adversary Engagement Ontology (AEO), version 0.1.8, has incorporated necessary refinements and updates. In accordance with Semantic Versioning principles, the AEO will continue to accept additive improvements, but any backwards-incompatible changes will be deferred until the next release, which is planned to occur within a minimum period of 6 months and a maximum period of 12 months.
+The latest release of the Adversary Engagement Ontology (AEO), version 0.2.0, has incorporated necessary refinements and updates. In accordance with Semantic Versioning principles, the AEO will continue to accept additive improvements, but any backwards-incompatible changes will be deferred until the next release, which is planned to occur within a minimum period of 6 months and a maximum period of 12 months.
 
 ## I have a question!
 
