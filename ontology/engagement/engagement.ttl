@@ -1,4 +1,3 @@
-
 @prefix engagement: <https://ontology.adversaryengagement.org/ae/engagement/> . 
 @prefix owl: <http://www.w3.org/2002/07/owl#> . 
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -54,6 +53,8 @@ engagement:Alert a owl:Class,
 	#Recent Date Modified: 2023-07-02
 	#Release Version: 0.2.0
 	#On-going Challenges: How to restrict the performer to be any UcoObject except Identity 
+	#Planned depreciation. UCO will absorb this class
+
 engagement:Beacon a owl:Class, 
         sh:NodeShape ; 
     rdfs:label "Beacon"@en ; 
@@ -70,7 +71,29 @@ engagement:Beacon a owl:Class,
 		] ;
     sh:targetClass engagement:Beacon . 
 
+	#Release Version: 0.2.1
+	#Added: 2023-11-17
+engagement:DeceptionAction a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "DeceptionAction"@en ;
+    rdfs:comment "A deception action is an action used for and during a deception campaign which is performed to manipulate an adversary's perception in a specific way."@en ;
+    rdfs:subClassOf uco-action:Action ;
+    sh:targetClass engagement:DeceptionAction .
 
+
+	#Release Version: 0.2.1
+	#Added: 2023-11-17
+engagement:DenialAction a owl:Class,
+        sh:NodeShape ;
+    rdfs:label "DenialAction"@en ;
+    rdfs:comment "A denial action is an action used for and during a deception campaign which restricts or denies an adversary access to some resource."@en ;
+    rdfs:subClassOf uco-action:Action ;
+    sh:targetClass engagement:DenialAction .
+
+
+
+
+	#Planned depreciation. UCO will absorb this class
 	#Release Version: 0.1.8
 engagement:Deploy a owl:Class,
         sh:NodeShape ;
@@ -88,6 +111,8 @@ engagement:Deploy a owl:Class,
 		] ;
     sh:targetClass engagement:Deploy .
 
+	
+	#Planned depreciation. UCO will absorb this class
 engagement:Obfuscate a owl:Class,
         sh:NodeShape ;
     rdfs:label "Obfuscate"@en ;
@@ -103,7 +128,8 @@ engagement:Obfuscate a owl:Class,
 			sh:path uco-core:name ;
 		] ;
     sh:targetClass engagement:Obfuscate .
-
+	
+	#Planned depreciation. UCO will absorb this class
 engagement:Respond a owl:Class,
         sh:NodeShape ;
     rdfs:label "Respond"@en ;
@@ -121,16 +147,17 @@ engagement:Respond a owl:Class,
     sh:targetClass engagement:Respond .
  
 
-# Objects
 
-	#Date Added: 2023-03-31
-	#Recent Date Modified: 2023-03-31
-	#Release Version: 0.1.9
+
+
+# Objects
+	#Release Version: 0.2.1
+	#Last Updated: 2023-11-17
 engagement:Breadcrumb a owl:Class,
         sh:NodeShape ;
 	rdfs:label "Breadcrumb"@en ;
 	rdfs:comment "A Breadcrumb is a set of objects placed to be at least partially, sequentially interacted by an adversary to ellicit an explicit response, often in the context of lateral movement."@en ;
-	rdfs:subClassOf engagement:LureObject ;
+	rdfs:subClassOf engagement:DeceptionObject ;
 	sh:property
 		[
 			sh:class uco-core:UcoObject ;
@@ -176,6 +203,7 @@ engagement:BreadcrumbTrail a owl:Class,
 	sh:targetClass engagement:BreadcrumbTrail .
 
 
+	#Will be depreciated. UCO will absorb this class.
 	#Release Version: 0.1.8
 engagement:DataSource a owl:Class, 
         sh:NodeShape ; 
@@ -184,7 +212,7 @@ engagement:DataSource a owl:Class,
     rdfs:subClassOf uco-core:UcoObject ; 
     sh:targetClass engagement:DataSource . 
 
-
+	#Will be depreciated. UCO will absorb this class.
 	#Release Version: 0.1.9
 engagement:DataTarget a owl:Class, 
         sh:NodeShape ; 
@@ -193,19 +221,51 @@ engagement:DataTarget a owl:Class,
     rdfs:subClassOf uco-core:UcoObject ; 
     sh:targetClass engagement:DataTarget . 
 
-	#Release Version: 0.1.8
+#Release Version: 0.2.1
+#Last Update: 2023-11-17
+#Replaces depreciated engagement:Lure
+engagement:DeceptionObject a owl:Class, 
+        sh:NodeShape ; 
+    rdfs:label "DeceptionObject"@en ; 
+    rdfs:comment " A deception concept object used during a deception compaign."@en ; 
+    rdfs:subClassOf uco-core:UcoObject ;
+    sh:property 
+		[
+			sh:class uco-core:UcoObject ;
+			sh:minCount 1 ;
+			sh:nodeKind sh:IRI ;
+			sh:path engagement:hasCharacterization 
+		] ,
+		[
+			sh:class uco-core:UcoObject ;
+			sh:minCount 1 ;
+			sh:nodeKind sh:IRI ;
+			sh:path engagement:hasPerceptionCharacterization 
+		] ,
+		[
+			sh:class uco-core:UcoObject ;
+			sh:minCount 1 ;
+			sh:nodeKind sh:IRI ;
+			sh:path engagement:hasAttackSurface 
+		] ;
+    sh:targetClass engagement:DeceptionObject . 
+
+
+
+	#Release Version: 0.2.1
+	#Last Updated: 2023-11-17
 engagement:Decoy a owl:Class, 
         sh:NodeShape ; 
     rdfs:label "Decoy"@en ; 
     rdfs:comment " A decoy is a placed object that has the perception of enough value to an adversary to pursue but contains no real value."@en ; 
-    rdfs:subClassOf engagement:LureObject ; 
+    rdfs:subClassOf engagement:DeceptionObject ; 
     sh:targetClass engagement:Decoy . 
 
 engagement:HoneyObject a owl:Class, 
         sh:NodeShape ; 
     rdfs:label "HoneyObject"@en ; 
     rdfs:comment " An domain object that is created to be percieved by an adversary to have high value to pursue in an adversary engagement operation that has no value out of scope of the operation's intended perception."@en ; 
-    rdfs:subClassOf engagement:LureObject ; 
+    rdfs:subClassOf engagement:DeceptionObject ; 
     sh:targetClass engagement:HoneyObject . 
 
 engagement:Honeypot a owl:Class,
@@ -246,42 +306,13 @@ engagement:HoneyToken a owl:Class,
     rdfs:subClassOf engagement:HoneyObject ;
     sh:targetClass engagement:HoneyToken . 
 
-engagement:LureObject a owl:Class, 
-        sh:NodeShape ; 
-    rdfs:label "LureObject"@en ; 
-    rdfs:comment " An object or set of objects used to attract an adversary that has the perception of high value regardless if it actually has high value."@en ; 
-    rdfs:subClassOf uco-core:UcoObject ;
-    sh:property 
-		[
-			sh:class uco-core:UcoObject ;
-			sh:minCount 1 ;
-			sh:nodeKind sh:IRI ;
-			sh:path engagement:hasCharacterization 
-		] ,
-		[
-			sh:class uco-core:UcoObject ;
-			sh:minCount 1 ;
-			sh:nodeKind sh:IRI ;
-			sh:path engagement:hasPerceptionCharacterization 
-		] ,
-		[
-			sh:class uco-core:UcoObject ;
-			sh:minCount 1 ;
-			sh:nodeKind sh:IRI ;
-			sh:path engagement:hasAttackSurface 
-		] ;
-    sh:targetClass engagement:LureObject . 
 
-engagement:Malware a owl:Class,
-        sh:NodeShape ;
-    rdfs:label "Malware"@en ;
-    rdfs:comment "Malware, also known as malicious code and malicious software, refers to a program that is inserted into a system, usually covertly, with the intent of compromising the confidentiality, integrity, or availability of the victim's data, applications, or operating system (OS) or of otherwise annoying or disrupting the victim. Malware such as viruses and worms are usually designed to perform these nefarious functions in such a way that users are unaware of them, at least initially."@en ;
-    rdfs:subClassOf uco-core:UcoObject ;
-    sh:targetClass engagement:Malware .
+
 
  
 # Planning & Narrative Concepts
 
+	#Planned to be depreciated. UCO will absorb Event
 	#Release Version: 0.1.8
 engagement:Event a owl:Class,
         sh:NodeShape ;
@@ -369,27 +400,6 @@ engagement:PocketLitter a owl:Class,
 			sh:path engagement:hasCharacterization 
 		] ;
     sh:targetClass engagement:PocketLitter . 
-
-engagement:Resource a owl:Class, 
-        sh:NodeShape ; 
-    rdfs:label "Resource"@en ; 
-    rdfs:comment " A resource can be a tool, location or object which requires some operational cost to enable availability."@en ; 
-    rdfs:subClassOf uco-core:UcoObject ; 
-    sh:targetClass engagement:Resource . 
-
-engagement:Sandbox a owl:Class,
-        sh:NodeShape ;
-    rdfs:label "Sandbox"@en ;
-    rdfs:comment " A controlled environment intended for malware detonation and malware analysis."@en ;
-    rdfs:subClassOf uco-core:UcoObject ;
-    sh:property
-		[
-			sh:class uco-core:UcoObject ;
-			sh:minCount 1 ;
-			sh:nodeKind sh:IRI ;
-			sh:path engagement:hasCharacterization
-		] ;
-    sh:targetClass engagement:Sandbox .
 
 
 engagement:Storyline a owl:Class,
@@ -484,5 +494,3 @@ engagement:honeypotInteractionType a owl:DatatypeProperty ;
     rdfs:comment "The interaction class intended for a honeypot."@en ;
     rdfs:range [ a rdfs:Datatype ;
             owl:unionOf ( vocabulary:HoneypotInteractionTypeVocab xsd:string ) ] .
-				
-
