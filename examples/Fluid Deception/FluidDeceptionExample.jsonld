@@ -81,44 +81,6 @@
         {
           "@id": "kb:device1"
         }
-    },
-
-
-
-    {
-      "@id": "kb:stage1",
-      "@type": "uco-core:UcoObject",
-      "engagement:hasCharacterization":
-      [
-        {
-          "@id": "kb:device1",
-          "@type": "uco-observable:Device",
-          "uco-core:hasFacet": [
-            {
-              "@id": "kb:operatingsystemfacet1",
-              "@type": "uco-observable:OperatingSystemFacet",
-              "uco-core:name": "WindowsXP"
-            },
-            {
-              "@id": "kb:networkinterfacefacet1",
-              "@type": "uco-observable:NetworkInterfaceFacet",
-              "uco-observable:ip": [
-                {
-                  "@id": "kb:ipaddress1",
-                  "@type": "uco-observable:IPAddress",
-                  "uco-core:hasFacet": [
-                    {
-                      "@id": "kb:ipaddressfacet1",
-                      "@type": "uco-observable:IPAddressFacet",
-                      "uco-observable:addressValue": "AAA.BBB.CCC.DDD"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
     }
   ]
 }
