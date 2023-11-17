@@ -36,7 +36,38 @@
         {
           "@id": "kb:honeypot-low",
           "@type": "engagement:Honeypot",
-          "engagement:honeypotInteractionType": "low"
+          "engagement:honeypotInteractionType": "low",
+      "engagement:hasCharacterization":
+      [
+        {
+          "@id": "kb:device1",
+          "@type": "uco-observable:Device",
+          "uco-core:hasFacet": [
+            {
+              "@id": "kb:operatingsystemfacet1",
+              "@type": "uco-observable:OperatingSystemFacet",
+              "uco-core:name": "WindowsXP"
+            },
+            {
+              "@id": "kb:networkinterfacefacet1",
+              "@type": "uco-observable:NetworkInterfaceFacet",
+              "uco-observable:ip": [
+                {
+                  "@id": "kb:ipaddress1",
+                  "@type": "uco-observable:IPAddress",
+                  "uco-core:hasFacet": [
+                    {
+                      "@id": "kb:ipaddressfacet1",
+                      "@type": "uco-observable:IPAddressFacet",
+                      "uco-observable:addressValue": "AAA.BBB.CCC.DDD"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
         }
       ]
     },
@@ -45,46 +76,18 @@
       "@id": "kb:honeypot-high",
       "@type": "engagement:Honeypot",
       "engagement:honeypotInteractionType": "high",
-      "uco-core:startTime": "2023-02-03:03:02"
+      "uco-core:startTime": "2023-02-03:03:02",
+      "engagement:hasCharacterization":
+        {
+          "@id": "kb:device1"
+        }
     },
 
-    {
-      "@id": "kb:relationship1",
-      "@type": "uco-core:Relationship",
-      "uco-core:kindofRelationship": "has_stage",
-      "uco-core:source": [
-        {
-          "@id": "kb:honeypot-low",
-          "@type": "engagement:Honeypot"
-        }
-      ],
-      "uco-core:target": [
-        {
-          "@id": "kb:stage1"
-        }
-      ]
-    },
 
-    {
-      "@id": "kb:relationship2",
-      "@type": "uco-core:Relationship",
-      "uco-core:kindofRelationship": "has_stage",
-      "uco-core:source": [
-        {
-          "@id": "kb:honeypot-high",
-          "@type": "engagement:Honeypot"
-        }
-      ],
-      "uco-core:target": [
-        {
-          "@id": "kb:stage1"
-        }
-      ]
-    },
 
     {
       "@id": "kb:stage1",
-      "@type": "engagement:Stage",
+      "@type": "uco-core:UcoObject",
       "engagement:hasCharacterization":
       [
         {
