@@ -15,16 +15,16 @@
 	a owl:Ontology ;
 	rdfs:label "ae-master"@en ;
 	rdfs:comment ""@en ;
-	dct:title "Adversary Engagement Sub-Ontology (ae)"@en ;
+	dct:title "Adversary Engagement Application Ontology (AEO)"@en ;
 	owl:imports
-		<https://ontology.adversaryengagement.org/ae/attack/0.2.0> ,
-		<https://ontology.adversaryengagement.org/ae/engagement/0.2.0> ,
-		<https://ontology.adversaryengagement.org/ae/identity/0.2.0> ,
-		<https://ontology.adversaryengagement.org/ae/objective/0.2.0> ,
-		<https://ontology.adversaryengagement.org/ae/role/0.2.0> ,
-		<https://ontology.adversaryengagement.org/ae/vocabulary/0.2.0> ,
+		<https://ontology.adversaryengagement.org/ae/attack/0.2.1> ,
+		<https://ontology.adversaryengagement.org/ae/engagement/0.2.1> ,
+		<https://ontology.adversaryengagement.org/ae/identity/0.2.1> ,
+		<https://ontology.adversaryengagement.org/ae/objective/0.2.1> ,
+		<https://ontology.adversaryengagement.org/ae/role/0.2.1> ,
+		<https://ontology.adversaryengagement.org/ae/vocabulary/0.2.1> ,
 		<https://ontology.unifiedcyberontology.org/uco/uco/1.2.0>
 		;
-	owl:versionIRI <https://ontology.adversaryengagement.org/ae/ae/0.2.0> ;
-	owl:versionInfo "0.2.0" ;
+	owl:versionIRI <https://ontology.adversaryengagement.org/ae/ae/0.2.1> ;
+	owl:versionInfo "0.2.1" ;
 	.
