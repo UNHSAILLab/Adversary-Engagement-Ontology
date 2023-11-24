@@ -68,12 +68,9 @@ There are three examples inside the `\examples\` folder.
   │    │         ├── engagement:HoneyToken
   │    │         ├── engagement:Honeypot
   │    ├── engagement:BreadcrumbTrail
-  │    ├── engagement:Malware
   │    ├── engagement:Narrative
   │    ├── engagement:PlannedEvent
   │    ├── engagement:PocketLitter
-  │    ├── engagement:Resource
-  │    ├── engagement:Sandbox
   │    ├── engagement:Storyline
   │    ├── objective:Objective
   ├── uco-identity:Identity
